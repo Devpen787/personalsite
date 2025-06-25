@@ -44,21 +44,21 @@ const web2Experience = [
     id: 1,
     title: 'Digitl Switzerland',
     period: '2022–2024',
-    description: 'Led adtech onboarding, integrated GenAI, scaled to $10M+ revenue, 100+ clients.',
+    description: 'Led adtech onboarding, integrated GenAI, scaled to $10M+ revenue, 100+ clients. Transformed client onboarding processes from manual workflows to automated systems, significantly reducing implementation time and improving client satisfaction. Built and managed a team of strategists across multiple countries, implementing data-driven decision frameworks that improved campaign performance. Pioneered AI-powered audience targeting solutions that delivered measurable ROI improvements for enterprise clients.',
     role: 'Strategy & Growth Lead'
   },
   {
     id: 2,
     title: 'Trakken',
     period: '2019–2022',
-    description: 'Global GMP consultant, audience strategy, dynamic remarketing, 100+ clients.',
+    description: 'Global GMP consultant, audience strategy, dynamic remarketing, 100+ clients. Developed and executed global marketing strategies for Fortune 500 companies, consistently delivering improved conversion rates and campaign performance. Created proprietary audience segmentation models that increased targeting efficiency and reduced customer acquisition costs. Led cross-functional teams across multiple continents, managing significant annual ad spend while maintaining high client retention rates.',
     role: 'Global GMP Consultant'
   },
   {
     id: 3,
     title: 'Xaxis / GroupM',
     period: '2013–2018',
-    description: 'Built Xaxis e-Academy, trained 3,500+ internal users, launched enablement platforms across EMEA & US.',
+    description: 'Built Xaxis e-Academy, trained 3,500+ internal users, launched enablement platforms across EMEA & US. Designed and implemented comprehensive training programs that reduced onboarding time and increased team productivity. Created scalable learning management systems that supported multiple markets and languages, achieving high user adoption rates. Established best practices and standardized processes that improved campaign delivery accuracy and reduced operational errors.',
     role: 'Training & Enablement Lead'
   }
 ]
@@ -106,10 +106,10 @@ export default function Home() {
                 <div className="animate-fade-in">
                   {/* Merged Intro as Hero */}
                   <div className="mb-8 text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed space-y-4">
-                    <p>Hi, I&apos;m Devinson Peña. I build systems that connect people, technology, and trust.</p>
-                    <p>For over a decade, I led global teams in digital strategy and advertising technology. Today, I&apos;m exploring what comes next, working at the edges of decentralization, community tooling, and creative technology.</p>
-                    <p>I believe curiosity is a superpower. I use it to imagine better systems, design meaningful tools, and help shape a future that feels more human and more fair.</p>
-                    <p>This site is where my ideas live, my projects grow, and my path forward stays open.</p>
+                    <p>Hi, I&apos;m Devinson Peña. I am a strategist turned builder focused on trust, systems, and meaningful innovation.</p>
+                    <p>For over a decade, I led product and strategy teams across Europe and the United States, scaling operations, launching platforms, and driving growth in digital and advertising technology. I have worked with global organizations, trained thousands, and built the frameworks that help teams move faster with more clarity.</p>
+                    <p>I made a deliberate decision to step off the conventional path and focus on what matters more building tools that strengthen coordination, expand access, and reshape how value flows.</p>
+                    <p>Today, I work at the intersection of decentralization, creativity, and execution. I build with purpose, lead with structure, and align with people who are not chasing trends but designing what comes next.</p>
                   </div>
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -175,6 +175,38 @@ export default function Home() {
               </p>
             </div>
 
+            {/* Web2 / Strategy Experience */}
+            <div className="mb-16">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-display font-bold mb-4 flex items-center justify-center">
+                  <span className="mr-3">🧠</span>
+                  Web2 / Strategy Experience
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Proven track record in digital strategy and business growth
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {web2Experience.map((exp, index) => (
+                  <div key={exp.id} className="card p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold">{exp.title}</h4>
+                        <p className="text-blue-600 dark:text-blue-400 font-medium">{exp.role}</p>
+                      </div>
+                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Web3 / Blockchain Experience */}
             <div className="mb-16">
               <div className="text-center mb-12">
@@ -214,38 +246,6 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Web2 / Strategy Experience */}
-            <div className="mb-16">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-display font-bold mb-4 flex items-center justify-center">
-                  <span className="mr-3">🧠</span>
-                  Web2 / Strategy Experience
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Proven track record in digital strategy and business growth
-                </p>
-              </div>
-
-              <div className="space-y-8">
-                {web2Experience.map((exp, index) => (
-                  <div key={exp.id} className="card p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold">{exp.title}</h4>
-                        <p className="text-blue-600 dark:text-blue-400 font-medium">{exp.role}</p>
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {exp.description}
-                    </p>
                   </div>
                 ))}
               </div>
