@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: 'Devinson Peña - Web3 Builder & Strategy Leader',
   description: 'Curious mind in motion. I build tools, tell stories, and help bold teams grow — with a foot in the future.',
   keywords: ['Web3', 'Blockchain', 'Strategy', 'Polkadot', 'NFT', 'Developer'],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

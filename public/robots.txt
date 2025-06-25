@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://personalsite-9vb6vk311-devinsons-projects-b5ab981e.vercel.app/sitemap.xml 
