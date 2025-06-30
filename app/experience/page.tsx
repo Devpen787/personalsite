@@ -154,24 +154,6 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-
-            {/* Resume Download */}
-            <div className="text-center">
-              <div className="card p-8 max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4">Full Resume</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Download my complete resume for detailed experience and qualifications
-                </p>
-                <a 
-                  href="/Devinson_Pena_Resume.pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Download Resume (PDF)
-                </a>
-              </div>
-            </div>
           </div>
         </section>
       </main>

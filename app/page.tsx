@@ -143,25 +143,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quick Stats Section */}
-        <section className="section-padding bg-gray-50 dark:bg-gray-800">
-          <div className="container-max">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">3+</div>
-                <div className="text-gray-600 dark:text-gray-300">Web3 Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">10+</div>
-                <div className="text-gray-600 dark:text-gray-300">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">100+</div>
-                <div className="text-gray-600 dark:text-gray-300">Clients Served</div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Simple Separator */}
+        <div className="border-t border-gray-200 dark:border-gray-700"></div>
 
         {/* Experience Section */}
         <section id="experience" className="section-padding">
@@ -204,6 +187,29 @@ export default function Home() {
                     </p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Resume Download Section */}
+            <div className="mb-16">
+              <div className="card p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Full Resume</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Download my complete resume for detailed experience and qualifications
+                </p>
+                <a 
+                  href="/Devinson_Pena_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Download Resume (PDF)
+                </a>
               </div>
             </div>
 
@@ -399,68 +405,6 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="card p-8">
-                <h3 className="text-2xl font-bold text-center mb-8">Send a Message</h3>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                      placeholder="What&apos;s this about?"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 resize-none"
-                      placeholder="Tell me about your project or collaboration idea..."
-                    ></textarea>
-                  </div>
-                  <div className="text-center">
-                    <button type="submit" className="btn-primary">
-                      Send Message
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
