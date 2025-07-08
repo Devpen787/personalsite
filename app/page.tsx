@@ -7,34 +7,34 @@ import Image from 'next/image'
 const web3Experience = [
   {
     id: 1,
-    title: 'Polkadot Blockchain Academy (PBA-X)',
-    period: 'Jan–Feb 2025',
-    description: 'Intensive training in Substrate, governance, crypto-economics, and interoperability.',
-    hasNFT: true,
-    nftImage: '/images/pbax-nft.jpg',
-    nftAlt: 'PBA-X NFT Badge'
-  },
-  {
-    id: 2,
-    title: 'Zuitzerland 2025',
-    period: '2025',
-    description: 'Built "Zsplit," a budgeting tool for trust-based, wallet-auth communities using JAM stack.',
-    hasNFT: false
-  },
-  {
-    id: 3,
-    title: 'EthereumZuri.ch 2025',
-    period: '2025',
-    description: 'Participated in the EthereumZuri conference, engaged with Polkadot\'s cross-chain tech.',
+    title: 'EthereumZuri.ch',
+    period: 'Jan 2025',
+    description: 'Attended Switzerland\'s leading Ethereum conference, engaging with multichain interoperability projects and ecosystem conversations connecting Polkadot and Ethereum. Participated in technical sessions focused on identity, messaging standards, and coordination tooling across L1s and L2s.',
     hasNFT: true,
     nftImage: '/images/ethzuri-nft.jpg',
     nftAlt: 'EthereumZuri NFT Badge'
   },
   {
+    id: 2,
+    title: 'Polkadot Blockchain Academy (PBA-X)',
+    period: 'Jan–Feb 2025',
+    description: 'Selected for a competitive in person cohort focused on the Polkadot tech stack. Completed immersive training in Substrate development, on chain governance, crypto economic design, and cross chain interoperability. Collaborated with core ecosystem contributors on applied challenges and use cases.',
+    hasNFT: true,
+    nftImage: '/images/pbax-nft.jpg',
+    nftAlt: 'PBA-X NFT Badge'
+  },
+  {
+    id: 3,
+    title: 'Zuitzerland',
+    period: 'May 2025',
+    description: 'Chosen for a two week, curated Web3 residency in the Swiss Alps focused on decentralized trust and coordination. Co developed Zsplit, a wallet authenticated group budgeting tool designed for crypto native communities. Engaged in daily collaboration with builders, researchers, and product thinkers.',
+    hasNFT: false
+  },
+  {
     id: 4,
-    title: 'NFT + Maker Projects',
-    period: '2024–Present',
-    description: 'Currently launching a product that bridges physical laser engraving with blockchain authenticity.',
+    title: 'ZüBerlin / ZK Hackathon',
+    period: 'Jun 2025',
+    description: 'Participated in ZüBerlin 2025, a week long gathering of zero knowledge researchers and developers. Co built zkWerewolf, a privacy preserving multiplayer game that uses ZK principles to simulate hidden roles and game logic without revealing player identity. Explored new UX models for on chain social games under cryptographic constraints.',
     hasNFT: false
   }
 ]
@@ -42,54 +42,35 @@ const web3Experience = [
 const web2Experience = [
   {
     id: 1,
-    title: 'Digitl Switzerland',
+    title: 'Digitl Switzerland AG',
     period: '2022–2024',
-    description: 'Led adtech onboarding, integrated GenAI, scaled to $10M+ revenue, 100+ clients. Transformed client onboarding processes from manual workflows to automated systems, significantly reducing implementation time and improving client satisfaction. Built and managed a team of strategists across multiple countries, implementing data-driven decision frameworks that improved campaign performance. Pioneered AI-powered audience targeting solutions that delivered measurable ROI improvements for enterprise clients.',
-    role: 'Strategy & Growth Lead'
+    description: 'Led the Advertising Technology team during a period of rapid growth, scaling Digitl into the region\'s fastest certified Google partner. Managed a $10M+ revenue pipeline and onboarded over 100 clients through a repeatable framework that aligned sales, product, and operations. Integrated generative AI and automation tools to streamline onboarding and support new client use cases. Built and led a cross functional team of adtech specialists to support strategic growth initiatives.',
+    role: 'Team Lead, Advertising Technology'
   },
   {
     id: 2,
     title: 'Trakken',
     period: '2019–2022',
-    description: 'Global GMP consultant, audience strategy, dynamic remarketing, 100+ clients. Developed and executed global marketing strategies for Fortune 500 companies, consistently delivering improved conversion rates and campaign performance. Created proprietary audience segmentation models that increased targeting efficiency and reduced customer acquisition costs. Led cross-functional teams across multiple continents, managing significant annual ad spend while maintaining high client retention rates.',
-    role: 'Global GMP Consultant'
+    description: 'Delivered advanced GMP consulting for 100+ clients across industries such as finance, retail, and travel — including enterprise accounts spending over $1M per month. Led a team of consultants, managing hiring, training, and project delivery. Acted as the main liaison to Google Partner Teams, supporting product feedback loops and piloting new GMP features to shape global rollouts.',
+    role: 'Team Lead, Advertising Technology Consultant'
   },
   {
     id: 3,
     title: 'Xaxis / GroupM',
-    period: '2013–2018',
-    description: 'Built Xaxis e-Academy, trained 3,500+ internal users, launched enablement platforms across EMEA & US. Designed and implemented comprehensive training programs that reduced onboarding time and increased team productivity. Created scalable learning management systems that supported multiple markets and languages, achieving high user adoption rates. Established best practices and standardized processes that improved campaign delivery accuracy and reduced operational errors.',
-    role: 'Training & Enablement Lead'
+    period: '2016–2018',
+    description: 'Managed the global media technology pipeline across regional product teams. Worked with the Global Product VP to align strategy with business needs, streamline planning, and develop investment cases for platform expansion. Led executive calls, maintained product roadmaps, and supported high stakes client pitches.',
+    role: 'Global Senior Product Program Manager'
+  },
+  {
+    id: 4,
+    title: 'Xaxis / GroupM',
+    period: '2013–2016',
+    description: 'Designed and launched the Xaxis e-Academy, a global enablement platform used by 3,500+ employees across EMEA and North America. Localized onboarding programs for GMP and programmatic tools, and delivered workshops across 10+ markets to improve campaign performance and platform fluency.',
+    role: 'Senior Product Enablement & Development Manager'
   }
 ]
 
-// Projects data
-const projects = [
-  {
-    id: 1,
-    title: 'Zsplit',
-    description: 'Group expense tracker for decentralized communities, built at Zuitzerland 2025',
-    tech: ['Supabase', 'Next.js', 'Privy', 'JAM (Polkadot)'],
-    status: 'Completed',
-    image: '/images/zsplit-preview.jpg'
-  },
-  {
-    id: 2,
-    title: 'zkWerewolf',
-    description: 'Zero-knowledge identity game built at ZK Hack Berlin',
-    tech: ['ZK simulation', 'Hidden-role logic', 'Multiplayer UX'],
-    status: 'Completed',
-    image: '/images/zkwerewolf-preview.jpg'
-  },
-  {
-    id: 3,
-    title: 'SwissWoodMaps',
-    description: 'Laser-cut map art linked to NFTs and blockchain metadata of Swiss regions',
-    tech: ['xTool F1', 'Wallet payments', 'NFT integration'],
-    status: 'In Progress',
-    image: '/images/swisswoodmaps-preview.jpg'
-  }
-]
+
 
 export default function Home() {
   return (
@@ -108,15 +89,12 @@ export default function Home() {
                   <div className="mb-8 text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed space-y-4">
                     <p>Hi, I&apos;m Devinson Peña. I am a strategist turned builder focused on trust, systems, and meaningful innovation.</p>
                     <p>For over a decade, I led product and strategy teams across Europe and the United States, scaling operations, launching platforms, and driving growth in digital and advertising technology. I have worked with global organizations, trained thousands, and built the frameworks that help teams move faster with more clarity.</p>
-                    <p>I made a deliberate decision to step off the conventional path and focus on what matters more building tools that strengthen coordination, expand access, and reshape how value flows.</p>
+                    <p>I made a deliberate decision to step off the conventional path and focus on what matters more: building tools that strengthen coordination, expand access, and reshape how value flows.</p>
                     <p>Today, I work at the intersection of decentralization, creativity, and execution. I build with purpose, lead with structure, and align with people who are not chasing trends but designing what comes next.</p>
                   </div>
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#projects" className="btn-primary">
-                      See Projects
-                    </a>
-                    <a href="/Devinson_Pena_Resume.pdf" target="_blank" className="btn-secondary">
+                    <a href="/Devinson_Pena_Resume.pdf" target="_blank" className="btn-primary">
                       View Resume
                     </a>
                     <a href="#contact" className="btn-secondary">
@@ -143,6 +121,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Me Section */}
+        <section className="section-padding">
+          <div className="container-max">
+            <div className="card p-8 mb-16">
+              <h2 className="text-3xl font-display font-bold mb-4">About Me</h2>
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <p>I'm a New Yorker turned Zurich local, with stops in Boston, Madrid, Cologne, and Düsseldorf along the way. I speak English, Spanish, and German. I think best while running, biking, or dancing to Latin music.</p>
+                <p>I've done triathlons and Ironman 70.3s, but mostly I move to stay grounded. I've always been into tech. I grew up breaking and fixing computers. Now I tinker with a laser cutter just to see what I can make out of wood, acrylic, or whatever's around.</p>
+                <p>I like building things with good people. If you're working on something interesting, or just figuring it out, say hi.</p>
+                <div className="mt-6">
+                  <a href="https://x.com/me_darealjev" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline text-lg">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.477h3.924l-8.56 9.823 10.09 13.223h-7.944l-6.22-8.18-7.13 8.18H.765l9.13-10.44L0 2.477h8.09l5.44 7.16zm-1.12 18.07h2.17L6.64 4.29H4.33z"/></svg>
+                    @me_darealjev
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Simple Separator */}
         <div className="border-t border-gray-200 dark:border-gray-700"></div>
 
@@ -154,7 +152,7 @@ export default function Home() {
                 Experience
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Bridging traditional business strategy with cutting-edge Web3 innovation
+                Bridging traditional business strategy with cutting edge Web3 innovation
               </p>
             </div>
 
@@ -240,17 +238,6 @@ export default function Home() {
                           {exp.description}
                         </p>
                       </div>
-                      
-                      {exp.hasNFT && (
-                        <div className="lg:w-32 flex-shrink-0">
-                          <div className="w-full aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <p className="text-white text-xs text-center">NFT Badge</p>
-                          </div>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
-                            On-chain proof
-                          </p>
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}
@@ -259,79 +246,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-800">
+        {/* How I Can Help & Contact Section */}
+        <section id="contact" className="section-padding bg-gray-50 dark:bg-gray-800">
           <div className="container-max">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Projects
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Exploring the intersection of Web3 technology and practical applications. 
-                From decentralized finance to zero-knowledge proofs.
-              </p>
-            </div>
-
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              {projects.map((project, index) => (
-                <div key={project.id} className="card p-6 hover:scale-105 transition-transform duration-300">
-                  {/* Project Image Placeholder */}
-                  <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-6 flex items-center justify-center">
-                    <p className="text-white font-medium">{project.title} Preview</p>
-                  </div>
-                  
-                  {/* Project Info */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <span className={`px-3 py-1 text-xs rounded-full ${
-                        project.status === 'Completed' 
-                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-                          : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
-                      }`}>
-                        {project.status}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, index) => (
-                        <span 
-                          key={index}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Interested in collaborating on a Web3 project?
-              </p>
-              <a href="#contact" className="btn-primary">
-                Let&apos;s Connect
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="section-padding">
-          <div className="container-max">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Contact
+                How I Can Help
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Let&apos;s connect and explore opportunities in Web3, strategy, or collaboration
@@ -339,8 +259,48 @@ export default function Home() {
             </div>
 
             <div className="max-w-4xl mx-auto">
+              {/* How I Can Help Content */}
+              <div className="card p-8 mb-16">
+                <div className="prose prose-lg dark:prose-invert max-w-none">
+                  <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
+                    I'm especially interested in partnering with teams building in decentralized coordination, identity, and trust systems across Web3. I bring 10+ years of experience across go to market strategy (GTM), product enablement, onboarding systems, and partnerships, with a track record of launching and scaling tools in both Web2 and Web3 environments.
+                  </p>
+                  
+                  <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
+                    I can support early stage teams with:
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start text-lg">
+                      <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 dark:text-gray-200">Product market fit exploration and positioning</span>
+                    </li>
+                    <li className="flex items-start text-lg">
+                      <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 dark:text-gray-200">GTM planning, onboarding flows, and community growth</span>
+                    </li>
+                    <li className="flex items-start text-lg">
+                      <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 dark:text-gray-200">Partnership and ecosystem development</span>
+                    </li>
+                    <li className="flex items-start text-lg">
+                      <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 dark:text-gray-200">Translating complex technical concepts into user friendly narratives</span>
+                    </li>
+                    <li className="flex items-start text-lg">
+                      <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 dark:text-gray-200">Designing processes for adoption, training, and scale</span>
+                    </li>
+                  </ul>
+                  
+                  <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                    If you're building in this space and want a partner who can connect the dots between product, users, and growth, I'd love to hear from you.
+                  </p>
+                </div>
+              </div>
+
               {/* Contact Methods */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Email */}
                 <div className="card p-8 text-center">
                   <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -379,31 +339,6 @@ export default function Home() {
                   >
                     Connect on LinkedIn
                   </a>
-                </div>
-              </div>
-
-              {/* Web3 Contact */}
-              <div className="card p-8 text-center mb-16">
-                <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4">Web3 & Blockchain</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  For Web3 collaborations, NFT projects, or blockchain discussions
-                </p>
-                <div className="space-y-4">
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">ENS Address (Coming Soon)</p>
-                    <p className="font-mono text-gray-700 dark:text-gray-300">devinson.eth</p>
-                  </div>
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Wallet Address</p>
-                    <p className="font-mono text-gray-700 dark:text-gray-300 text-sm">
-                      0x1234...5678
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

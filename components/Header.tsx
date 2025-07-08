@@ -23,7 +23,7 @@ export default function Header() {
     if (pathname !== '/') return
 
     const handleScroll = () => {
-      const sections = ['home', 'experience', 'projects', 'contact']
+      const sections = ['home', 'experience', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -69,7 +69,6 @@ export default function Header() {
   const navItems = [
     { href: '/', label: 'Home', section: 'home' },
     { href: pathname === '/' ? '#experience' : '/experience', label: 'Experience', section: 'experience' },
-    { href: pathname === '/' ? '#projects' : '/projects', label: 'Projects', section: 'projects' },
     { href: pathname === '/' ? '#contact' : '/contact', label: 'Contact', section: 'contact' },
   ]
 

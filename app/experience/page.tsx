@@ -5,34 +5,34 @@ import Image from 'next/image'
 const web3Experience = [
   {
     id: 1,
-    title: 'Polkadot Blockchain Academy (PBA-X)',
-    period: 'Jan–Feb 2025',
-    description: 'Intensive training in Substrate, governance, crypto-economics, and interoperability.',
-    hasNFT: true,
-    nftImage: '/images/pbax-nft.jpg',
-    nftAlt: 'PBA-X NFT Badge'
-  },
-  {
-    id: 2,
-    title: 'Zuitzerland 2025',
-    period: '2025',
-    description: 'Built "Zsplit," a budgeting tool for trust-based, wallet-auth communities using JAM stack.',
-    hasNFT: false
-  },
-  {
-    id: 3,
-    title: 'EthereumZuri.ch 2025',
-    period: '2025',
-    description: 'Participated in the EthereumZuri conference, engaged with Polkadot\'s cross-chain tech.',
+    title: 'EthereumZuri.ch',
+    period: 'Jan 2025',
+    description: 'Attended Switzerland\'s leading Ethereum conference, engaging with multi-chain interoperability projects and ecosystem conversations connecting Polkadot and Ethereum. Participated in technical sessions focused on identity, messaging standards, and coordination tooling across L1s and L2s.',
     hasNFT: true,
     nftImage: '/images/ethzuri-nft.jpg',
     nftAlt: 'EthereumZuri NFT Badge'
   },
   {
+    id: 2,
+    title: 'Polkadot Blockchain Academy (PBA-X)',
+    period: 'Jan–Feb 2025',
+    description: 'Selected for a competitive in-person cohort focused on the Polkadot tech stack. Completed immersive training in Substrate development, on-chain governance, crypto-economic design, and cross-chain interoperability. Collaborated with core ecosystem contributors on applied challenges and use cases.',
+    hasNFT: true,
+    nftImage: '/images/pbax-nft.jpg',
+    nftAlt: 'PBA-X NFT Badge'
+  },
+  {
+    id: 3,
+    title: 'Zuitzerland',
+    period: 'May 2025',
+    description: 'Chosen for a two-week, curated Web3 residency in the Swiss Alps focused on decentralized trust and coordination. Co-developed Zsplit, a wallet-authenticated group budgeting tool designed for crypto-native communities. Engaged in daily collaboration with builders, researchers, and product thinkers.',
+    hasNFT: false
+  },
+  {
     id: 4,
-    title: 'NFT + Maker Projects',
-    period: '2024–Present',
-    description: 'Currently launching a product that bridges physical laser engraving with blockchain authenticity.',
+    title: 'ZüBerlin / ZK Hackathon',
+    period: 'Jun 2025',
+    description: 'Participated in ZüBerlin 2025, a week-long gathering of zero-knowledge researchers and developers. Co-built zkWerewolf, a privacy-preserving multiplayer game that uses ZK principles to simulate hidden roles and game logic without revealing player identity. Explored new UX models for on-chain social games under cryptographic constraints.',
     hasNFT: false
   }
 ]
@@ -40,24 +40,31 @@ const web3Experience = [
 const web2Experience = [
   {
     id: 1,
-    title: 'Digitl Switzerland',
+    title: 'Digitl Switzerland AG',
     period: '2022–2024',
-    description: 'Led adtech onboarding, integrated GenAI, scaled to $10M+ revenue, 100+ clients.',
-    role: 'Strategy & Growth Lead'
+    description: 'Led the Advertising Technology team during a period of rapid growth, scaling Digitl into the region\'s fastest-certified Google partner. Managed a $10M+ revenue pipeline and onboarded over 100 clients through a repeatable framework that aligned sales, product, and operations. Integrated generative AI and automation tools to streamline onboarding and support new client use cases. Built and led a cross-functional team of adtech specialists to support strategic growth initiatives.',
+    role: 'Team Lead, Advertising Technology'
   },
   {
     id: 2,
     title: 'Trakken',
     period: '2019–2022',
-    description: 'Global GMP consultant, audience strategy, dynamic remarketing, 100+ clients.',
-    role: 'Global GMP Consultant'
+    description: 'Delivered advanced GMP consulting for 100+ clients across industries such as finance, retail, and travel — including enterprise accounts spending over $1M per month. Led a team of consultants, managing hiring, training, and project delivery. Acted as the main liaison to Google Partner Teams, supporting product feedback loops and piloting new GMP features to shape global rollouts.',
+    role: 'Team Lead, Advertising Technology Consultant'
   },
   {
     id: 3,
     title: 'Xaxis / GroupM',
-    period: '2013–2018',
-    description: 'Built Xaxis e-Academy, trained 3,500+ internal users, launched enablement platforms across EMEA & US.',
-    role: 'Training & Enablement Lead'
+    period: '2016–2018',
+    description: 'Managed the global media technology pipeline across regional product teams. Worked with the Global Product VP to align strategy with business needs, streamline planning, and develop investment cases for platform expansion. Led executive calls, maintained product roadmaps, and supported high-stakes client pitches.',
+    role: 'Global Senior Product Program Manager'
+  },
+  {
+    id: 4,
+    title: 'Xaxis / GroupM',
+    period: '2013–2016',
+    description: 'Designed and launched the Xaxis e-Academy, a global enablement platform used by 3,500+ employees across EMEA and North America. Localized onboarding programs for GMP and programmatic tools, and delivered workshops across 10+ markets to improve campaign performance and platform fluency.',
+    role: 'Senior Product Enablement & Development Manager'
   }
 ]
 
