@@ -127,9 +127,9 @@ export default function Home() {
             <div className="card p-8 mb-16">
               <h2 className="text-3xl font-display font-bold mb-4">About Me</h2>
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p>I'm a New Yorker turned Zurich local, with stops in Boston, Madrid, Cologne, and Düsseldorf along the way. I speak English, Spanish, and German. I think best while running, biking, or dancing to Latin music.</p>
-                <p>I've done triathlons and Ironman 70.3s, but mostly I move to stay grounded. I've always been into tech. I grew up breaking and fixing computers. Now I tinker with a laser cutter just to see what I can make out of wood, acrylic, or whatever's around.</p>
-                <p>I like building things with good people. If you're working on something interesting, or just figuring it out, say hi.</p>
+                <p>I&apos;m a New Yorker turned Zurich local, with stops in Boston, Madrid, Cologne, and Düsseldorf along the way. I speak English, Spanish, and German. I think best while running, biking, or dancing to Latin music.</p>
+                <p>I&apos;ve done triathlons and Ironman 70.3s, but mostly I move to stay grounded. I&apos;ve always been into tech. I grew up breaking and fixing computers. Now I tinker with a laser cutter just to see what I can make out of wood, acrylic, or whatever&apos;s around.</p>
+                <p>I like building things with good people. If you&apos;re working on something interesting, or just figuring it out, say hi.</p>
                 <div className="mt-6">
                   <a href="https://x.com/me_darealjev" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline text-lg">
                     <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.477h3.924l-8.56 9.823 10.09 13.223h-7.944l-6.22-8.18-7.13 8.18H.765l9.13-10.44L0 2.477h8.09l5.44 7.16zm-1.12 18.07h2.17L6.64 4.29H4.33z"/></svg>
@@ -263,7 +263,7 @@ export default function Home() {
               <div className="card p-8 mb-16">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
-                    I'm especially interested in partnering with teams building in decentralized coordination, identity, and trust systems across Web3. I bring 10+ years of experience across go to market strategy (GTM), product enablement, onboarding systems, and partnerships, with a track record of launching and scaling tools in both Web2 and Web3 environments.
+                    I&apos;m especially interested in partnering with teams building in decentralized coordination, identity, and trust systems across Web3. I bring 10+ years of experience across go to market strategy (GTM), product enablement, onboarding systems, and partnerships, with a track record of launching and scaling tools in both Web2 and Web3 environments.
                   </p>
                   
                   <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
@@ -294,7 +294,7 @@ export default function Home() {
                   </ul>
                   
                   <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                    If you're building in this space and want a partner who can connect the dots between product, users, and growth, I'd love to hear from you.
+                    If you&apos;re building in this space and want a partner who can connect the dots between product, users, and growth, I&apos;d love to hear from you.
                   </p>
                 </div>
               </div>
