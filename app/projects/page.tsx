@@ -18,10 +18,43 @@ const work = [
   },
   {
     title: 'Builder programs and ecosystem work',
-    href: 'https://www.linkedin.com/in/devinsonpena/',
-    linkLabel: 'LinkedIn',
+    href: '#events',
+    linkLabel: 'See events',
     body:
       'Builder programs across Switzerland and Berlin that gave me more direct exposure to product trade-offs, ecosystem conversations, and the reality of how onchain products are tested in practice.',
+  },
+]
+
+const events = [
+  {
+    name: 'Zuitzerland',
+    href: 'https://www.zuitzerland.ch/',
+    note: 'Swiss builder residency and community program.',
+  },
+  {
+    name: 'ZuBerlin',
+    href: 'https://zuberlin.city/',
+    note: 'Berlin-based builder gathering around zero-knowledge and onchain experimentation.',
+  },
+  {
+    name: 'ETHGlobal',
+    href: 'https://ethglobal.com/',
+    note: 'Broader Ethereum hackathon and builder event network.',
+  },
+  {
+    name: 'ETHCC',
+    href: 'https://ethcc.io/',
+    note: 'European Ethereum conference and a core touchpoint for Cannes.',
+  },
+  {
+    name: 'Breaking DePIN',
+    href: 'https://www.breakingdepin.ch/',
+    note: 'DePIN-focused Swiss event relevant to infrastructure and incentive design.',
+  },
+  {
+    name: 'CV Summit',
+    href: 'https://www.cvsummit.ch/',
+    note: 'Crypto Valley ecosystem conference with strong Swiss company density.',
   },
 ]
 
@@ -49,13 +82,48 @@ export default function Projects() {
               <article key={item.title} className="story-block">
                 <div className="story-header">
                   <h2>{item.title}</h2>
-                  <a href={item.href} target={item.href.startsWith('/docs') ? '_blank' : undefined} rel={item.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}>
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') || item.href.startsWith('/docs') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') || item.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}
+                  >
                     {item.linkLabel}
                   </a>
                 </div>
                 <p className="body-copy">{item.body}</p>
               </article>
             ))}
+          </div>
+
+          <div id="events" className="story-stack mt-12">
+            <article className="story-block">
+              <div className="story-header">
+                <h2>Community and ecosystem events</h2>
+              </div>
+              <div className="body-copy">
+                <p>
+                  These are the actual communities and event surfaces behind the ecosystem work referenced on the site.
+                  They matter because they are where product ideas, coordination problems, and live network conversations
+                  become visible in practice.
+                </p>
+              </div>
+              <div className="timeline-shell mt-8">
+                {events.map((event) => (
+                  <article key={event.name} className="timeline-row">
+                    <div className="timeline-meta">
+                      <h2>{event.name}</h2>
+                      <p>Community / event link</p>
+                    </div>
+                    <p className="body-copy">
+                      {event.note}{' '}
+                      <a href={event.href} target="_blank" rel="noopener noreferrer">
+                        Visit site
+                      </a>
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </article>
           </div>
         </section>
       </main>

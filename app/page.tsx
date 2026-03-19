@@ -43,10 +43,10 @@ const proofStories = [
   },
   {
     title: 'Builder programs across Switzerland and Berlin',
-    href: '/projects',
-    linkLabel: 'See context',
+    href: '/projects#events',
+    linkLabel: 'See events',
     body: [
-      'I joined builder programs and ecosystem gatherings including Zuitzerland, ZuBerlin, and related Berlin Blockchain Week work to get closer to how onchain products are actually being built and tested.',
+      'I joined builder programs and ecosystem gatherings including Zuitzerland, ZuBerlin, and related events around ETHGlobal, ETHCC, Breaking DePIN, and CV Summit to get closer to how onchain products are actually being built and tested.',
       'Those settings mattered less as badges and more as working environments: they exposed how product decisions, community expectations, and technical constraints collide in practice.',
     ],
   },
@@ -181,7 +181,11 @@ export default function Home() {
                 <article key={story.title} className="story-block">
                   <div className="story-header">
                     <h2>{story.title}</h2>
-                    <a href={story.href} target={story.href.startsWith('/docs') ? '_blank' : undefined} rel={story.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}>
+                    <a
+                      href={story.href}
+                      target={story.href.startsWith('http') || story.href.startsWith('/docs') ? '_blank' : undefined}
+                      rel={story.href.startsWith('http') || story.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}
+                    >
                       {story.linkLabel}
                     </a>
                   </div>

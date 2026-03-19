@@ -19,8 +19,12 @@ export default function Contact() {
                   feel free to reach out.
                 </p>
                 <p>
-                  I&apos;ll also be at ETHCC in Cannes from March 31 to April 5, 2026 and would be glad to connect in
-                  person if there is a useful overlap.
+                  I&apos;ll also be at{' '}
+                  <a href="https://ethcc.io/" target="_blank" rel="noopener noreferrer">
+                    ETHCC
+                  </a>{' '}
+                  in Cannes from March 31 to April 5, 2026 and would be glad to connect in person if there is a useful
+                  overlap.
                 </p>
               </div>
             </div>
