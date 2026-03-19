@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ 
@@ -7,16 +7,17 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const spaceGrotesk = Space_Grotesk({ 
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600'],
+  variable: '--font-display',
 })
 
 export const metadata: Metadata = {
-  title: 'Devinson Peña | Web3 Product, Partnerships & GTM',
+  title: 'Devinson Peña | Web3 Product, Partnerships & Adoption',
   description:
-    'Zurich-based Web3 operator focused on tokenization, onchain products, and the product-commercial layer that helps adoption happen in practice.',
-  keywords: ['Web3', 'Tokenization', 'Onchain Products', 'Product Management', 'Strategic Partnerships', 'GTM'],
+    'Editorial portfolio for Devinson Peña, a Zurich-based operator focused on tokenization, onchain products, and real-world adoption.',
+  keywords: ['Web3', 'Tokenization', 'Onchain Products', 'Product Management', 'Strategic Partnerships', 'Adoption'],
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -35,7 +36,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300`}>
+      <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

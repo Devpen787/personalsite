@@ -1,111 +1,66 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const projects = [
+const work = [
   {
-    id: 1,
-    title: 'Zsplit',
-    description: 'Group expense tracker for decentralized communities, built at Zuitzerland 2025',
-    tech: ['Supabase', 'Next.js', 'Privy', 'JAM (Polkadot)'],
-    status: 'Completed',
-    image: '/images/zsplit-preview.jpg'
+    title: 'CAS Blockchain at HSLU',
+    href: '/docs/hslu-cas-paper.pdf',
+    linkLabel: 'Read paper',
+    body:
+      'A research project on DePIN tokenomics under stress, using Onocoy as an anchor case to study what happens when incentive systems face slower growth, weaker retention, and real network pressure.',
   },
   {
-    id: 2,
-    title: 'zkWerewolf',
-    description: 'Zero-knowledge identity game built at ZK Hack Berlin',
-    tech: ['ZK simulation', 'Hidden-role logic', 'Multiplayer UX'],
-    status: 'Completed',
-    image: '/images/zkwerewolf-preview.jpg'
+    title: 'ChopDot',
+    href: '/docs/chopdot-brief.pdf',
+    linkLabel: 'Read brief',
+    body:
+      'A wallet-based coordination experiment built around a simple but revealing product question: where do trust, clarity, and user confidence break down when group expenses move onchain?',
   },
   {
-    id: 3,
-    title: 'SwissWoodMaps',
-    description: 'Laser-cut map art linked to NFTs and blockchain metadata of Swiss regions',
-    tech: ['xTool F1', 'Wallet payments', 'NFT integration'],
-    status: 'In Progress',
-    image: '/images/swisswoodmaps-preview.jpg'
-  }
+    title: 'Builder programs and ecosystem work',
+    href: 'https://www.linkedin.com/in/devinsonpena/',
+    linkLabel: 'LinkedIn',
+    body:
+      'Builder programs across Switzerland and Berlin that gave me more direct exposure to product trade-offs, ecosystem conversations, and the reality of how onchain products are tested in practice.',
+  },
 ]
 
 export default function Projects() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="page-root">
       <Header />
-      
+
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="section-padding">
-          <div className="container-max">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Projects
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Exploring the intersection of Web3 technology and practical applications. 
-                From decentralized finance to zero-knowledge proofs.
+        <section className="section-shell pt-12 md:pt-16">
+          <div className="section-grid">
+            <div className="section-label">Selected work</div>
+            <div className="space-y-5">
+              <h1 className="display-subtitle">A small set of projects and proof points that show how I work.</h1>
+              <p className="body-copy">
+                I would rather show a few real pieces of work than fill this page with placeholders. These are the
+                projects and outputs that best represent where my thinking and effort have gone over the last phase of
+                my career.
               </p>
             </div>
+          </div>
 
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <div key={project.id} className="card p-6 hover:scale-105 transition-transform duration-300">
-                  {/* Project Image Placeholder */}
-                  <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-6 flex items-center justify-center">
-                    <p className="text-white font-medium">{project.title} Preview</p>
-                  </div>
-                  
-                  {/* Project Info */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <span className={`px-3 py-1 text-xs rounded-full ${
-                        project.status === 'Completed' 
-                          ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-                          : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
-                      }`}>
-                        {project.status}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, index) => (
-                        <span 
-                          key={index}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+          <div className="story-stack mt-12">
+            {work.map((item) => (
+              <article key={item.title} className="story-block">
+                <div className="story-header">
+                  <h2>{item.title}</h2>
+                  <a href={item.href} target={item.href.startsWith('/docs') ? '_blank' : undefined} rel={item.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}>
+                    {item.linkLabel}
+                  </a>
                 </div>
-              ))}
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center mt-16">
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Interested in collaborating on a Web3 project?
-              </p>
-              <a 
-                href="/contact" 
-                className="btn-primary"
-              >
-                Let&apos;s Connect
-              </a>
-            </div>
+                <p className="body-copy">{item.body}</p>
+              </article>
+            ))}
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   )
-} 
+}

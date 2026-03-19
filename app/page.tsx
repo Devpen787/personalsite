@@ -2,88 +2,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 
-const focusAreas = [
-  {
-    title: 'Tokenization',
-    body:
-      'I am focused on how digital asset products become usable in regulated, institution-facing settings, especially when issuance, lifecycle management, and adoption need to hold together.',
-  },
-  {
-    title: 'Onchain products',
-    body:
-      'I am interested in products that bridge wallets, settlement, and real user behavior rather than treating onchain capability as an end in itself.',
-  },
-  {
-    title: 'Adoption',
-    body:
-      'My edge is translating product complexity into something teams can ship, customers can understand, and commercial functions can actually support.',
-  },
-]
-
-const proofBar = [
-  '10+ years turning complex products into clearer, more usable systems.',
-  'Built in the gap between technical capability, onboarding, and adoption.',
-  'Hands-on Web3 proof through HSLU, ChopDot, and builder programs across Switzerland and Berlin.',
-]
-
-const proofBlocks = [
-  {
-    title: 'CAS Blockchain at HSLU',
-    href: '/docs/hslu-cas-paper.pdf',
-    cta: 'Open paper',
-    summary:
-      'Completed the CAS Blockchain at Hochschule Luzern with a research paper on DePIN token design under stress, using Onocoy as an anchor case.',
-    bullets: [
-      'Studied how token incentive design behaves when growth, retention, and participation weaken.',
-      'Focused on the business consequences of emissions design, provider quality, and network resilience.',
-      'Worked on the paper with Florian Baumann and Cristian Carvalho.',
-      'Useful lens for tokenization, infrastructure products, and adoption in emerging onchain markets.',
-    ],
-  },
-  {
-    title: 'ChopDot',
-    href: '/docs/chopdot-brief.pdf',
-    cta: 'Open brief',
-    summary:
-      'A live experiment in wallet-based coordination, built as a Polkadot-native group expense app and later recognized in the global Build Resilient Apps with Polkadot Cloud hackathon.',
-    bullets: [
-      'Started from a simple problem: group expenses break down when trust, clarity, and coordination are weak.',
-      'Tested how far wallet-based coordination can work when only one person needs to settle onchain and everyone else still needs to understand the flow.',
-      'Reinforced a useful product lesson: people rarely struggle with payments alone, they struggle with confidence, transparency, and knowing what happens next.',
-    ],
-  },
-  {
-    title: 'Builder programs',
-    href: 'https://www.linkedin.com/in/devinsonpena/',
-    cta: 'LinkedIn',
-    summary:
-      'Joined builder programs and competitions across Switzerland and Berlin, including ZuBerlin, Zuitzerland, and zkProof Noir-related ecosystem work during Berlin Blockchain Week.',
-    bullets: [
-      'Strengthened network density across European onchain product and infrastructure circles.',
-      'Spent time around the kinds of teams building wallets, coordination tools, and crypto-native UX.',
-    ],
-  },
-]
-
-const experienceHighlights = [
-  {
-    company: 'Xaxis',
-    body:
-      'Worked around a global product and technology pipeline, roadmap priorities, and the planning layer around senior product leadership.',
-  },
-  {
-    company: 'Digitl',
-    body:
-      'Helped align sales, product, and operations around onboarding and expansion in a high-growth adtech environment tied to a $10M+ pipeline and 100+ client onboardings.',
-  },
-  {
-    company: 'Trakken',
-    body:
-      'Worked directly with complex clients, technical platforms, and executive-facing workshops where the hard part was not just capability, but adoption and clarity.',
-  },
-]
-
-const thinkingBlocks = [
+const thinkingPoints = [
   {
     title: 'Onboarding is usually the real bottleneck',
     body:
@@ -101,245 +20,235 @@ const thinkingBlocks = [
   },
 ]
 
+const proofStories = [
+  {
+    title: 'CAS Blockchain at HSLU',
+    href: '/docs/hslu-cas-paper.pdf',
+    linkLabel: 'Read paper',
+    body: [
+      'I completed the CAS Blockchain at Hochschule Luzern with a research paper on DePIN tokenomics under stress, using the Onocoy network as an anchor case.',
+      'What mattered most to me was not the narrative around growth, but what happens when retention weakens, participation slows, and the system has to keep working anyway.',
+      'That work sharpened how I think about tokenization, incentives, and product credibility when markets become less forgiving.',
+    ],
+  },
+  {
+    title: 'ChopDot',
+    href: '/docs/chopdot-brief.pdf',
+    linkLabel: 'Read brief',
+    body: [
+      'ChopDot started as a practical question: what breaks first when people try to coordinate group expenses through wallets instead of familiar Web2 tools?',
+      'The interesting part was never just settlement. It was the trust layer around it: who understands what is happening, who is comfortable acting, and where confidence drops off.',
+      'That made it useful as a live product experiment in coordination, clarity, and wallet friction, not just a hackathon artifact.',
+    ],
+  },
+  {
+    title: 'Builder programs across Switzerland and Berlin',
+    href: '/projects',
+    linkLabel: 'See context',
+    body: [
+      'I joined builder programs and ecosystem gatherings including Zuitzerland, ZuBerlin, and related Berlin Blockchain Week work to get closer to how onchain products are actually being built and tested.',
+      'Those settings mattered less as badges and more as working environments: they exposed how product decisions, community expectations, and technical constraints collide in practice.',
+    ],
+  },
+]
+
+const background = [
+  {
+    company: 'Xaxis',
+    role: 'Global Senior Product Program Manager',
+    period: '2016–2018',
+    body:
+      'Worked around a global product and technology pipeline, roadmap priorities, and the planning layer around senior product leadership.',
+  },
+  {
+    company: 'Digitl',
+    role: 'Team Lead, Advertising Technology',
+    period: '2022–2024',
+    body:
+      'Helped align sales, product, and operations around onboarding and expansion in a high-growth environment tied to a $10M+ pipeline and 100+ client onboardings.',
+  },
+  {
+    company: 'Trakken',
+    role: 'Team Lead, Advertising Technology Consultant',
+    period: '2019–2022',
+    body:
+      'Worked directly with complex clients, technical platforms, and executive-facing workshops where the hard part was not just capability, but adoption and clarity.',
+  },
+]
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-stone-950 text-stone-100">
+    <div className="page-root">
       <Header />
 
       <main className="flex-1">
-        <section
-          id="home"
-          className="section-padding bg-[radial-gradient(circle_at_top_right,_rgba(251,146,60,0.22),_transparent_30%),linear-gradient(180deg,_#120d0b_0%,_#1f1713_45%,_#2c211b_100%)]"
-        >
-          <div className="container-max">
-            <div className="grid gap-8 lg:grid-cols-[1.35fr_0.85fr] items-stretch">
-              <div className="rounded-[32px] border border-white/10 bg-white/6 p-8 md:p-10 shadow-2xl backdrop-blur">
-                <p className="mb-4 font-display text-xs uppercase tracking-[0.22em] text-orange-300">
-                  Zurich-based operator in Web3
-                </p>
-                <h1 className="max-w-4xl font-display text-5xl font-bold tracking-tight md:text-7xl">
-                  I help Web3 products become clearer, more usable, and easier to adopt.
-                </h1>
-                <p className="mt-5 max-w-3xl text-lg font-semibold text-orange-100 md:text-2xl">
-                  Focused on tokenization, onchain products, and the product-commercial layer between capability and real adoption.
-                </p>
-                <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-200">
-                  My background spans product, partnerships, GTM, onboarding, and stakeholder-heavy delivery. I tend
-                  to be most useful where the technology is promising, the workflow is messy, and adoption still needs
-                  to be earned.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="#proof"
-                    className="inline-flex items-center rounded-full bg-orange-500 px-5 py-3 font-semibold text-stone-950 transition hover:bg-orange-400"
-                  >
-                    View proof
-                  </a>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
-                  >
-                    Let&apos;s talk
-                  </a>
-                  <a
-                    href="/docs/devinson-pena-cv.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
-                  >
-                    Open CV
-                  </a>
-                </div>
-                <div className="mt-8 grid gap-3 md:grid-cols-3">
-                  {proofBar.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl border border-white/10 bg-black/10 px-4 py-4 text-sm font-medium leading-6 text-orange-50"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[#f6efe4] text-stone-900 shadow-2xl">
-                <div className="relative h-[380px] sm:h-[440px]">
-                  <Image
-                    src="/images/Devinson_Photo.jpeg"
-                    alt="Devinson Peña"
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 34vw"
-                  />
-                </div>
-                <div className="space-y-3 bg-[#fff8ee] p-6">
-                  <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">ETHCC</p>
-                  <h2 className="font-display text-2xl font-bold">Cannes, March 31 to April 5, 2026</h2>
-                  <p className="text-base leading-7 text-stone-700">
-                    Happy to connect with teams building tokenization, market infrastructure, wallets, and adoption
-                    rails.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-padding bg-[#f4ede4] text-stone-900">
-          <div className="container-max">
-            <div className="grid gap-6 lg:grid-cols-[190px_1fr]">
-              <div>
-                <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">Current focus</p>
-              </div>
-              <div className="grid gap-5 md:grid-cols-3">
-                {focusAreas.map((item) => (
-                  <article
-                    key={item.title}
-                    className="rounded-[28px] border border-black/8 bg-white/70 p-6 shadow-[0_16px_40px_rgba(29,22,18,0.08)]"
-                  >
-                    <h2 className="font-display text-2xl font-bold">{item.title}</h2>
-                    <p className="mt-3 text-base leading-7 text-stone-700">{item.body}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-padding bg-[#f7f1e8] text-stone-900">
-          <div className="container-max">
-            <div className="grid gap-6 lg:grid-cols-[190px_1fr]">
-              <div>
-                <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">How I think</p>
-              </div>
-              <div className="grid gap-5 md:grid-cols-3">
-                {thinkingBlocks.map((item) => (
-                  <article
-                    key={item.title}
-                    className="rounded-[28px] border border-black/8 bg-white/75 p-6 shadow-[0_16px_40px_rgba(29,22,18,0.08)]"
-                  >
-                    <h2 className="font-display text-2xl font-bold leading-tight">{item.title}</h2>
-                    <p className="mt-3 text-base leading-7 text-stone-700">{item.body}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="proof" className="section-padding bg-[#eadfce] text-stone-900">
-          <div className="container-max">
-            <div className="grid gap-6 lg:grid-cols-[190px_1fr]">
-              <div>
-                <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">Selected proof</p>
-              </div>
+        <section id="home" className="section-shell pt-12 md:pt-16">
+          <div className="content-grid">
+            <div className="space-y-7">
+              <p className="kicker">Zurich-based operator in Web3</p>
               <div className="space-y-5">
-                {proofBlocks.map((item) => (
-                  <article
-                    key={item.title}
-                    className="rounded-[28px] border border-black/8 bg-white/70 p-7 shadow-[0_16px_40px_rgba(29,22,18,0.08)]"
-                  >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-                      <h2 className="font-display text-2xl font-bold">{item.title}</h2>
-                      <a
-                        href={item.href}
-                        target={item.href.startsWith('/docs') ? '_blank' : undefined}
-                        rel={item.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}
-                        className="font-semibold text-orange-700 hover:text-orange-800"
-                      >
-                        {item.cta}
-                      </a>
-                    </div>
-                    <p className="mt-3 text-lg leading-8 text-stone-700">{item.summary}</p>
-                    <ul className="mt-4 space-y-3 pl-5 text-base leading-7 text-stone-700 marker:text-orange-700">
-                      {item.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  </article>
-                ))}
+                <h1 className="display-title">Devinson Peña</h1>
+                <p className="hero-statement">
+                  I work on the product-commercial layer where Web3 products need to become clear, usable, and worth
+                  adopting.
+                </p>
               </div>
+
+              <div className="space-y-5 body-large text-balance">
+                <p>
+                  Over the last decade, I have worked across product, partnerships, GTM, onboarding, and delivery in
+                  environments where the hard part was rarely the capability itself. The hard part was making complex
+                  products legible enough for teams to sell, implement, and trust.
+                </p>
+                <p>
+                  I am now applying that same lens to tokenization, onchain products, and the operational layer behind
+                  real adoption. I am based in Zurich, I work across English, Spanish, and German, and I tend to think
+                  best when the problem is still a little messy.
+                </p>
+              </div>
+
+              <div className="hero-actions">
+                <a href="#work" className="editorial-button editorial-button--primary">
+                  Read my work
+                </a>
+                <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer" className="editorial-link">
+                  View CV
+                </a>
+                <a href="#contact" className="editorial-link">
+                  Connect
+                </a>
+              </div>
+            </div>
+
+            <aside className="hero-portrait-shell">
+              <div className="portrait-frame">
+                <Image
+                  src="/images/Devinson_Photo.jpeg"
+                  alt="Devinson Peña"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 36vw"
+                />
+              </div>
+              <div className="portrait-note">
+                <p className="kicker">Now</p>
+                <p>
+                  Focused on tokenization, onchain products, and the part of product work where trust, workflow, and
+                  adoption either hold together or fall apart.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section className="section-shell">
+          <div className="section-grid">
+            <div className="section-label">What I&apos;m focused on now</div>
+            <div className="section-copy body-copy">
+              <p>
+                The most interesting work for me sits between technical possibility and real-world use. I am especially
+                interested in tokenization, onchain products, and workflow design in places where operational trust
+                matters as much as the underlying technology.
+              </p>
+              <p>
+                That includes the onboarding path, the clarity of the user journey, and the commercial reality around
+                whether a product can actually become part of someone&apos;s workflow.
+              </p>
             </div>
           </div>
         </section>
 
-        <section className="section-padding bg-[#f7f1e8] text-stone-900">
-          <div className="container-max">
-            <div className="grid gap-6 lg:grid-cols-[190px_1fr]">
-              <div>
-                <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">Why me</p>
-              </div>
-              <div className="rounded-[32px] border border-black/8 bg-white/72 p-8 shadow-[0_16px_40px_rgba(29,22,18,0.08)]">
-                <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl">
-                  Most of my career has been spent helping messy products become easier to sell, implement, and use.
-                </h2>
-                <div className="mt-8 grid gap-5 md:grid-cols-3">
-                  {experienceHighlights.map((item) => (
-                    <div key={item.company}>
-                      <h3 className="font-display text-xl font-bold">{item.company}</h3>
-                      <p className="mt-2 text-base leading-7 text-stone-700">{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <section className="section-shell section-shell--muted">
+          <div className="section-grid">
+            <div className="section-label">How I think</div>
+            <div className="thesis-grid">
+              {thinkingPoints.map((item) => (
+                <article key={item.title} className="thesis-block">
+                  <h2>{item.title}</h2>
+                  <p>{item.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="section-padding bg-stone-950 text-stone-100">
-          <div className="container-max">
-            <div className="rounded-[32px] border border-white/10 bg-white/6 p-8 shadow-2xl backdrop-blur md:p-10">
-              <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
-                <div>
-                  <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-300">Connect</p>
-                  <h2 className="mt-3 font-display text-3xl font-bold md:text-5xl">
-                    If you&apos;re building in tokenization, onchain products, or Web3 adoption and need stronger product clarity, onboarding, or commercial traction, let&apos;s talk.
-                  </h2>
-                  <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-200">
-                    I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026 and I&apos;m especially interested in
-                    conversations with teams working on tokenization, market infrastructure, wallets, and the
-                    operational layer behind real adoption.
-                  </p>
+        <section id="work" className="section-shell">
+          <div className="section-grid">
+            <div className="section-label">Selected work</div>
+            <div className="story-stack">
+              {proofStories.map((story) => (
+                <article key={story.title} className="story-block">
+                  <div className="story-header">
+                    <h2>{story.title}</h2>
+                    <a href={story.href} target={story.href.startsWith('/docs') ? '_blank' : undefined} rel={story.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}>
+                      {story.linkLabel}
+                    </a>
+                  </div>
+                  <div className="body-copy">
+                    {story.body.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell section-shell--muted">
+          <div className="section-grid">
+            <div className="section-label">Background</div>
+            <div className="section-copy body-copy">
+              <p>
+                Most of my career has been spent helping messy products become easier to sell, implement, and use. The
+                surface area changes, but the pattern does not: when teams are misaligned, when workflows are unclear,
+                or when adoption is still too fragile, that is usually where I can help most.
+              </p>
+            </div>
+          </div>
+          <div className="timeline-shell">
+            {background.map((item) => (
+              <article key={`${item.company}-${item.period}`} className="timeline-row">
+                <div className="timeline-meta">
+                  <h3>{item.company}</h3>
+                  <p>{item.role}</p>
+                  <span>{item.period}</span>
                 </div>
-                <div className="grid gap-3 text-lg">
-                  <a className="font-semibold text-orange-200 hover:text-orange-100" href="mailto:devinsonpena@gmail.com">
-                    devinsonpena@gmail.com
-                  </a>
-                  <a
-                    className="font-semibold text-orange-200 hover:text-orange-100"
-                    href="https://www.linkedin.com/in/devinsonpena/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    className="font-semibold text-orange-200 hover:text-orange-100"
-                    href="/docs/devinson-pena-cv.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    CV
-                  </a>
-                  <a
-                    className="font-semibold text-orange-200 hover:text-orange-100"
-                    href="/docs/hslu-cas-paper.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Paper
-                  </a>
-                  <a
-                    className="font-semibold text-orange-200 hover:text-orange-100"
-                    href="/docs/chopdot-brief.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    ChopDot brief
-                  </a>
-                </div>
-              </div>
+                <p className="body-copy">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="section-shell">
+          <div className="contact-shell">
+            <div className="space-y-4">
+              <p className="kicker">Connect</p>
+              <h2 className="display-subtitle">
+                If you&apos;re building in tokenization, onchain products, or adoption and want sharper product clarity,
+                onboarding, or commercial traction, let&apos;s talk.
+              </h2>
+              <p className="body-copy">
+                I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026 and I&apos;m especially interested in
+                conversations around tokenization, market infrastructure, wallets, and the operational layer behind
+                real adoption.
+              </p>
+            </div>
+            <div className="contact-links">
+              <a href="mailto:devinsonpena@gmail.com">Email</a>
+              <a href="https://www.linkedin.com/in/devinsonpena/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+              <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer">
+                CV
+              </a>
+              <a href="/docs/hslu-cas-paper.pdf" target="_blank" rel="noopener noreferrer">
+                Paper
+              </a>
+              <a href="/docs/chopdot-brief.pdf" target="_blank" rel="noopener noreferrer">
+                ChopDot brief
+              </a>
             </div>
           </div>
         </section>
