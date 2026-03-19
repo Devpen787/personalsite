@@ -20,6 +20,12 @@ const focusAreas = [
   },
 ]
 
+const proofBar = [
+  '10+ years turning complex products into clearer, more usable systems.',
+  'Built in the gap between technical capability, onboarding, and adoption.',
+  'Hands-on Web3 proof through HSLU, ChopDot, and builder programs across Switzerland and Berlin.',
+]
+
 const proofBlocks = [
   {
     title: 'CAS Blockchain at HSLU',
@@ -39,11 +45,11 @@ const proofBlocks = [
     href: '/docs/chopdot-brief.pdf',
     cta: 'Open brief',
     summary:
-      'Co-created a Polkadot-native group expense app that won the global Build Resilient Apps with Polkadot Cloud hackathon.',
+      'A live experiment in wallet-based coordination, built as a Polkadot-native group expense app and later recognized in the global Build Resilient Apps with Polkadot Cloud hackathon.',
     bullets: [
-      'Built around the real onboarding gap between wallet-native users and people who have never used one.',
-      'Made the settlement loop clearer and lighter instead of shipping feature sprawl.',
-      'Hands-on exposure to wallet flows, product trade-offs, and user-facing Web3 payments.',
+      'Started from a simple problem: group expenses break down when trust, clarity, and coordination are weak.',
+      'Tested how far wallet-based coordination can work when only one person needs to settle onchain and everyone else still needs to understand the flow.',
+      'Reinforced a useful product lesson: people rarely struggle with payments alone, they struggle with confidence, transparency, and knowing what happens next.',
     ],
   },
   {
@@ -77,6 +83,24 @@ const experienceHighlights = [
   },
 ]
 
+const thinkingBlocks = [
+  {
+    title: 'Onboarding is usually the real bottleneck',
+    body:
+      'If the path is unclear in the first few minutes, adoption stalls long before the underlying product gets a fair chance.',
+  },
+  {
+    title: 'Incentives are not the same thing as demand',
+    body:
+      'If usage only works while token prices are supportive, the product has not yet earned real pull.',
+  },
+  {
+    title: 'Operational trust matters as much as technology',
+    body:
+      'Institutions and serious users do not just assess the asset or protocol. They assess the workflow around it.',
+  },
+]
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-stone-950 text-stone-100">
@@ -94,39 +118,47 @@ export default function Home() {
                   Zurich-based operator in Web3
                 </p>
                 <h1 className="max-w-4xl font-display text-5xl font-bold tracking-tight md:text-7xl">
-                  Devinson Peña
+                  I help Web3 products become clearer, more usable, and easier to adopt.
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg font-semibold text-orange-100 md:text-2xl">
-                  Web3 | Product, Partnerships &amp; GTM | Tokenization, Onchain Products &amp; Adoption
+                  Focused on tokenization, onchain products, and the product-commercial layer between capability and real adoption.
                 </p>
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-200">
-                  I work where technically complex products still need to become clear, usable, and commercially real.
-                  My current focus is tokenization, onchain products, and the product-commercial layer that helps
-                  adoption happen in practice.
+                  My background spans product, partnerships, GTM, onboarding, and stakeholder-heavy delivery. I tend
+                  to be most useful where the technology is promising, the workflow is messy, and adoption still needs
+                  to be earned.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="#proof"
+                    className="inline-flex items-center rounded-full bg-orange-500 px-5 py-3 font-semibold text-stone-950 transition hover:bg-orange-400"
+                  >
+                    View proof
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
+                  >
+                    Let&apos;s talk
+                  </a>
                   <a
                     href="/docs/devinson-pena-cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full bg-orange-500 px-5 py-3 font-semibold text-stone-950 transition hover:bg-orange-400"
+                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
                   >
                     Open CV
                   </a>
-                  <a
-                    href="/docs/hslu-cas-paper.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
-                  >
-                    Read CAS paper
-                  </a>
-                  <a
-                    href="mailto:devinsonpena@gmail.com"
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/6 px-5 py-3 font-semibold text-stone-100 transition hover:bg-white/10"
-                  >
-                    Email me
-                  </a>
+                </div>
+                <div className="mt-8 grid gap-3 md:grid-cols-3">
+                  {proofBar.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-white/10 bg-black/10 px-4 py-4 text-sm font-medium leading-6 text-orange-50"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -167,6 +199,27 @@ export default function Home() {
                     className="rounded-[28px] border border-black/8 bg-white/70 p-6 shadow-[0_16px_40px_rgba(29,22,18,0.08)]"
                   >
                     <h2 className="font-display text-2xl font-bold">{item.title}</h2>
+                    <p className="mt-3 text-base leading-7 text-stone-700">{item.body}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-[#f7f1e8] text-stone-900">
+          <div className="container-max">
+            <div className="grid gap-6 lg:grid-cols-[190px_1fr]">
+              <div>
+                <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-700">How I think</p>
+              </div>
+              <div className="grid gap-5 md:grid-cols-3">
+                {thinkingBlocks.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-[28px] border border-black/8 bg-white/75 p-6 shadow-[0_16px_40px_rgba(29,22,18,0.08)]"
+                  >
+                    <h2 className="font-display text-2xl font-bold leading-tight">{item.title}</h2>
                     <p className="mt-3 text-base leading-7 text-stone-700">{item.body}</p>
                   </article>
                 ))}
@@ -241,11 +294,12 @@ export default function Home() {
                 <div>
                   <p className="font-display text-xs uppercase tracking-[0.22em] text-orange-300">Connect</p>
                   <h2 className="mt-3 font-display text-3xl font-bold md:text-5xl">
-                    I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026.
+                    If you&apos;re building in tokenization, onchain products, or Web3 adoption and need stronger product clarity, onboarding, or commercial traction, let&apos;s talk.
                   </h2>
                   <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-200">
-                    If you are building in tokenization, market infrastructure, wallets, or product-commercial adoption,
-                    I&apos;d be glad to connect for a quick coffee or conversation.
+                    I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026 and I&apos;m especially interested in
+                    conversations with teams working on tokenization, market infrastructure, wallets, and the
+                    operational layer behind real adoption.
                   </p>
                 </div>
                 <div className="grid gap-3 text-lg">
