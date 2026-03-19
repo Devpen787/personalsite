@@ -5,69 +5,69 @@ import Image from 'next/image'
 const focusAreas = [
   {
     title: 'Tokenization',
-    body:
-      'I am interested in the part where structure, issuance, workflows, and client confidence all have to hold together.',
+    body: 'Where issuance, workflow, client confidence, and operational clarity all have to hold together.',
   },
   {
     title: 'Onchain products',
-    body:
-      'Especially products that sit between technical capability and day-to-day usability, where the hard part is clarity rather than novelty.',
+    body: 'Products that sit between technical capability and day-to-day usability, where clarity matters more than novelty.',
   },
   {
     title: 'Adoption',
-    body:
-      'Not as a growth slogan, but as the moment a product becomes understandable enough to enter someone else’s real workflow.',
+    body: 'Not as a slogan, but as the moment a product becomes understandable enough to enter a real workflow.',
   },
 ]
 
-const thinkingPoints = [
+const principles = [
   {
+    number: '01',
     title: 'Onboarding is usually the bottleneck',
-    body:
-      'When the first few minutes are unclear, the product rarely gets a fair chance. Most drop-off is explained long before the technology itself is tested.',
+    body: 'If the first few minutes are unclear, the product rarely gets a fair chance.',
   },
   {
+    number: '02',
     title: 'Incentives are not demand',
-    body:
-      'A token can create motion without creating pull. I am more interested in whether the product still makes sense when incentives stop doing the explanatory work.',
+    body: 'A token can create motion without creating real pull. I care more about what remains when incentives stop doing the work.',
   },
   {
+    number: '03',
     title: 'Operational trust matters',
-    body:
-      'Serious users do not only assess the protocol or asset. They assess whether the surrounding workflow feels understandable, repeatable, and safe to act on.',
+    body: 'Serious users assess the workflow around the product, not just the protocol or asset itself.',
   },
 ]
 
-const stories = [
+const proofCards = [
   {
     title: 'CAS Blockchain at HSLU',
+    type: 'Research',
     href: '/docs/hslu-cas-paper.pdf',
-    linkLabel: 'Open paper',
-    eyebrow: 'Research',
+    cta: 'Open paper',
     summary:
-      'A DePIN tokenomics paper using Onocoy as an anchor case to look at what happens when retention weakens, growth slows, and the story has to survive real network pressure.',
-    insight:
-      'The most useful part of the work was not the headline conclusion. It was seeing how quickly product credibility can unravel when incentives are carrying more weight than real usage.',
+      'A DePIN tokenomics paper using Onocoy as an anchor case to test what happens when retention weakens and growth slows.',
+    bullets: [
+      'Focused on how quickly product credibility can unravel when incentives carry more weight than real usage.',
+      'Useful because it forced the product story to survive under pressure rather than in ideal conditions.',
+    ],
+    featured: true,
   },
   {
     title: 'ChopDot',
+    type: 'Product experiment',
     href: '/docs/chopdot-brief.pdf',
-    linkLabel: 'Read brief',
-    eyebrow: 'Product experiment',
-    summary:
-      'A wallet-based coordination experiment built around a simple question: what breaks first when group expenses move onchain?',
-    insight:
+    cta: 'Read brief',
+    summary: 'A wallet-based coordination experiment built around one practical question: what breaks first when group expenses move onchain?',
+    bullets: [
       'The real friction was not settlement. It was social clarity, confidence, and knowing what was happening at each step.',
+    ],
   },
   {
     title: 'Builder programs and live rooms',
+    type: 'Ecosystem exposure',
     href: '/projects#events',
-    linkLabel: 'See events',
-    eyebrow: 'Ecosystem exposure',
-    summary:
-      'Zuitzerland, ZuBerlin, ETHGlobal-related environments, Breaking DePIN, and Swiss ecosystem events brought me closer to how products are argued over, tested, and refined in practice.',
-    insight:
-      'Those settings mattered because they made the work feel real: fewer abstract narratives, more product trade-offs, coordination problems, and honest signals.',
+    cta: 'See events',
+    summary: 'Zuitzerland, ZuBerlin, ETHGlobal-related environments, Breaking DePIN, and Swiss ecosystem events made the work feel real.',
+    bullets: [
+      'Those rooms exposed product trade-offs, coordination problems, and honest network signals faster than polished positioning ever does.',
+    ],
   },
 ]
 
@@ -75,131 +75,143 @@ const background = [
   {
     company: 'Xaxis',
     role: 'Global product program work',
-    body:
-      'I worked around roadmap priorities, planning cadence, and senior product leadership in a large distributed environment where complexity needed structure.',
+    body: 'Roadmap planning, operating cadence, and senior product structure inside a large distributed environment.',
   },
   {
     company: 'Digitl',
     role: 'Adtech team lead',
-    body:
-      'I helped align sales, product, and operations around onboarding and expansion in a growth environment tied to a $10M+ pipeline and more than 100 client onboardings.',
+    body: 'Sales, product, and operations alignment around onboarding and expansion tied to a $10M+ pipeline and 100+ client onboardings.',
   },
   {
     company: 'Trakken',
     role: 'Consulting and implementation',
-    body:
-      'I worked with complex clients, executive workshops, and technical platforms where the challenge was making products easier to understand, adopt, and use.',
+    body: 'Complex client environments where the challenge was making products easier to understand, adopt, and use.',
   },
 ]
 
 export default function Home() {
+  const featuredProof = proofCards.find((card) => card.featured)!
+  const secondaryProof = proofCards.filter((card) => !card.featured)
+
   return (
     <div className="page-root">
       <Header />
 
       <main className="flex-1">
-        <section id="home" className="hero-shell">
-          <div className="container-max hero-layout">
-            <div className="hero-copy">
-              <p className="kicker">Zurich-based operator in Web3</p>
-              <h1 className="display-title">Devinson Peña</h1>
-              <p className="hero-statement">
-                I work on the point where complex Web3 products need to become clear, usable, and worth adopting.
-              </p>
-              <div className="body-large space-y-5">
-                <p>
-                  Over the last decade I have worked across product, partnerships, GTM, onboarding, and delivery in
-                  environments where the product itself was rarely the only challenge. The harder question was whether
-                  people could actually understand it well enough to trust it, implement it, and move on it.
-                </p>
-                <p>
-                  That is the lens I now bring to tokenization, onchain products, and the operational layer behind
-                  adoption. I work across English, Spanish, and German, and I tend to be most useful when the product
-                  is still a little messy and the story has not fully settled yet.
-                </p>
-              </div>
+        <section id="home" className="section-shell section-shell--hero">
+          <div className="container-max">
+            <div className="hero-panel">
+              <div className="hero-grid">
+                <div className="hero-copy">
+                  <p className="section-label">Zurich-based operator in Web3</p>
+                  <h1 className="display-title">Devinson Peña</h1>
+                  <p className="hero-statement">Making complex Web3 products clearer, more usable, and easier to adopt.</p>
 
-              <div className="hero-actions">
-                <a href="#work" className="editorial-button editorial-button--primary">
-                  Read my work
-                </a>
-                <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer" className="editorial-link">
-                  View CV
-                </a>
-                <a href="#contact" className="editorial-link">
-                  Connect
-                </a>
-              </div>
+                  <div className="body-large stack-md">
+                    <p>
+                      Over the last decade I have worked across product, partnerships, GTM, onboarding, and delivery in
+                      environments where the hard part was rarely the capability itself.
+                    </p>
+                    <p>
+                      The harder question was whether people could understand the product well enough to trust it,
+                      implement it, and move on it. That is the lens I now bring to tokenization, onchain products, and
+                      the operational layer behind adoption.
+                    </p>
+                  </div>
 
-              <div className="hero-meta">
-                <div>
-                  <span>Current focus</span>
-                  <p>Tokenization, onchain products, and workflow clarity.</p>
+                  <div className="action-row">
+                    <a href="#work" className="button-primary">
+                      Read my work
+                    </a>
+                    <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer" className="button-link">
+                      View CV
+                    </a>
+                    <a href="#contact" className="button-link">
+                      Connect
+                    </a>
+                  </div>
+
+                  <div className="chip-row">
+                    <span className="meta-chip">Zurich</span>
+                    <span className="meta-chip">English / Spanish / German</span>
+                    <span className="meta-chip">ETHCC Cannes 2026</span>
+                  </div>
                 </div>
-                <div>
-                  <span>Next stop</span>
-                  <p>ETHCC in Cannes, March 31 to April 5, 2026.</p>
-                </div>
+
+                <aside className="hero-side">
+                  <div className="portrait-card">
+                    <div className="portrait-card__image">
+                      <Image
+                        src="/images/Devinson_Photo.jpeg"
+                        alt="Devinson Peña"
+                        fill
+                        priority
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 34vw"
+                      />
+                    </div>
+                    <div className="portrait-card__body">
+                      <p className="section-label">Current focus</p>
+                      <p className="body-small">Tokenization, onchain products, and the workflows that make adoption feel real rather than theoretical.</p>
+                    </div>
+                  </div>
+
+                  <div className="aside-card">
+                    <p className="section-label">A human layer</p>
+                    <p className="body-small">
+                      I like rooms where products are being presented, challenged, and rebuilt in public. That usually
+                      tells me more than polished positioning does.
+                    </p>
+                  </div>
+                </aside>
               </div>
             </div>
-
-            <aside className="hero-aside">
-              <div className="portrait-stage">
-                <div className="portrait-wrap">
-                  <Image
-                    src="/images/Devinson_Photo.jpeg"
-                    alt="Devinson Peña"
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 34vw"
-                  />
-                </div>
-              </div>
-              <div className="aside-note">
-                <p className="kicker">A human layer</p>
-                <p>
-                  I like rooms where products are being presented, challenged, and rebuilt in public. That usually
-                  tells me more than polished positioning does.
-                </p>
-              </div>
-            </aside>
           </div>
         </section>
 
-        <section className="section-shell">
-          <div className="container-max editorial-section">
-            <div className="section-intro">
-              <p className="section-label">What I&apos;m focused on now</p>
-              <div className="section-copy body-copy">
-                <p>
-                  The work that interests me most sits between technical possibility and real-world use: places where
-                  tokenization, onchain products, and adoption depend on better workflow design, sharper framing, and
-                  more trust in the experience around the product.
-                </p>
+        <section className="section-shell section-shell--muted">
+          <div className="container-max stack-lg">
+            <div className="section-head">
+              <div className="section-head__meta">
+                <p className="section-label">Current focus</p>
+                <p className="section-title">What I am focused on now</p>
               </div>
+              <p className="section-description">
+                The work that interests me most sits between technical possibility and real-world use: places where the
+                product only becomes valuable once the workflow around it is clear enough to trust.
+              </p>
             </div>
-            <div className="focus-grid">
+
+            <div className="card-grid card-grid--3">
               {focusAreas.map((item) => (
-                <article key={item.title} className="focus-column">
-                  <h2>{item.title}</h2>
-                  <p>{item.body}</p>
+                <article key={item.title} className="content-card">
+                  <p className="section-label">{item.title}</p>
+                  <h2 className="card-title">{item.title}</h2>
+                  <p className="card-copy">{item.body}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section-shell section-shell--inked">
-          <div className="container-max editorial-section editorial-section--tight">
-            <div className="section-intro">
-              <p className="section-label">How I think</p>
+        <section className="section-shell section-shell--dark">
+          <div className="container-max stack-lg">
+            <div className="section-head section-head--dark">
+              <div className="section-head__meta">
+                <p className="section-label">How I think</p>
+                <p className="section-title">Three rules I keep coming back to.</p>
+              </div>
+              <p className="section-description">
+                These are the product problems I trust most when I am trying to understand whether something is truly usable or just well framed.
+              </p>
             </div>
-            <div className="thinking-grid">
-              {thinkingPoints.map((item) => (
-                <article key={item.title} className="thinking-column">
-                  <h2>{item.title}</h2>
-                  <p>{item.body}</p>
+
+            <div className="card-grid card-grid--3">
+              {principles.map((item) => (
+                <article key={item.title} className="rule-card">
+                  <p className="rule-number">Rule {item.number}</p>
+                  <h2 className="rule-title">{item.title}</h2>
+                  <p className="rule-copy">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -207,71 +219,83 @@ export default function Home() {
         </section>
 
         <section id="work" className="section-shell">
-          <div className="container-max editorial-section">
-            <div className="section-intro">
-              <p className="section-label">Selected work</p>
-              <div className="section-copy body-copy">
-                <p>
-                  A small set of proof points that show the kind of problems I am drawn to and the way I tend to work
-                  through them.
-                </p>
+          <div className="container-max stack-lg">
+            <div className="section-head">
+              <div className="section-head__meta">
+                <p className="section-label">Selected work</p>
+                <p className="section-title">A small set of real proof, not placeholders.</p>
               </div>
+              <p className="section-description">
+                These are the clearest examples of how I work through product questions around trust, incentives,
+                workflow, and adoption.
+              </p>
             </div>
 
-            <div className="story-layout">
-              <article className="story-primary">
-                <p className="story-eyebrow">{stories[0].eyebrow}</p>
-                <div className="story-header">
-                  <h2>{stories[0].title}</h2>
-                  <a href={stories[0].href} target="_blank" rel="noopener noreferrer">
-                    {stories[0].linkLabel}
+            <div className="proof-grid">
+              <article className="proof-card proof-card--featured">
+                <div className="proof-card__top">
+                  <div>
+                    <p className="section-label">{featuredProof.type}</p>
+                    <h2 className="proof-title">{featuredProof.title}</h2>
+                  </div>
+                  <a href={featuredProof.href} target="_blank" rel="noopener noreferrer" className="button-link">
+                    {featuredProof.cta}
                   </a>
                 </div>
-                <p className="story-summary">{stories[0].summary}</p>
-                <p className="story-insight">{stories[0].insight}</p>
+                <p className="proof-summary">{featuredProof.summary}</p>
+                <ul className="proof-list">
+                  {featuredProof.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </article>
 
-              <div className="story-secondary-stack">
-                {stories.slice(1).map((story) => (
-                  <article key={story.title} className="story-secondary">
-                    <p className="story-eyebrow">{story.eyebrow}</p>
-                    <div className="story-header">
-                      <h2>{story.title}</h2>
-                      <a
-                        href={story.href}
-                        target={story.href.startsWith('/docs') ? '_blank' : undefined}
-                        rel={story.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}
-                      >
-                        {story.linkLabel}
-                      </a>
+              {secondaryProof.map((card) => (
+                <article key={card.title} className="proof-card">
+                  <div className="proof-card__top">
+                    <div>
+                      <p className="section-label">{card.type}</p>
+                      <h2 className="proof-title">{card.title}</h2>
                     </div>
-                    <p className="story-summary">{story.summary}</p>
-                    <p className="story-insight">{story.insight}</p>
-                  </article>
-                ))}
-              </div>
+                    <a
+                      href={card.href}
+                      target={card.href.startsWith('/docs') ? '_blank' : undefined}
+                      rel={card.href.startsWith('/docs') ? 'noopener noreferrer' : undefined}
+                      className="button-link"
+                    >
+                      {card.cta}
+                    </a>
+                  </div>
+                  <p className="proof-summary">{card.summary}</p>
+                  <ul className="proof-list">
+                    {card.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="section-shell section-shell--muted">
-          <div className="container-max editorial-section">
-            <div className="section-intro">
-              <p className="section-label">Background</p>
-              <div className="section-copy body-copy">
-                <p>
-                  Most of my career has been spent helping messy products become easier to sell, implement, and use.
-                  Different sectors, same recurring pattern.
-                </p>
+          <div className="container-max stack-lg">
+            <div className="section-head">
+              <div className="section-head__meta">
+                <p className="section-label">Background</p>
+                <p className="section-title">Most of my career has been spent helping messy products become easier to sell, implement, and use.</p>
               </div>
+              <p className="section-description">
+                Different sectors, same recurring pattern: where the team needs more structure, clearer translation, and more trust in the product workflow.
+              </p>
             </div>
 
-            <div className="background-grid">
+            <div className="card-grid card-grid--3">
               {background.map((item) => (
-                <article key={item.company} className="background-column">
-                  <h2>{item.company}</h2>
-                  <p className="background-role">{item.role}</p>
-                  <p>{item.body}</p>
+                <article key={item.company} className="content-card">
+                  <p className="section-label">{item.role}</p>
+                  <h2 className="card-title">{item.company}</h2>
+                  <p className="card-copy">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -279,33 +303,41 @@ export default function Home() {
         </section>
 
         <section id="contact" className="section-shell">
-          <div className="container-max contact-shell contact-shell--editorial">
-            <div className="space-y-4">
-              <p className="section-label">Connect</p>
-              <h2 className="display-subtitle">
-                If you&apos;re building in tokenization, onchain products, or adoption and need more product clarity,
-                better onboarding, or sharper commercial traction, let&apos;s talk.
-              </h2>
-              <p className="body-copy">
-                I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026 and I&apos;m especially interested in
-                conversations around tokenization, market infrastructure, wallets, and the operational layer behind
-                real adoption.
-              </p>
-            </div>
-            <div className="contact-links">
-              <a href="mailto:devinsonpena@gmail.com">Email</a>
-              <a href="https://www.linkedin.com/in/devinsonpena/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer">
-                CV
-              </a>
-              <a href="/docs/hslu-cas-paper.pdf" target="_blank" rel="noopener noreferrer">
-                Paper
-              </a>
-              <a href="/docs/chopdot-brief.pdf" target="_blank" rel="noopener noreferrer">
-                ChopDot brief
-              </a>
+          <div className="container-max">
+            <div className="cta-panel">
+              <div className="cta-panel__copy">
+                <p className="section-label">Connect</p>
+                <h2 className="display-subtitle">If you&apos;re building in tokenization, onchain products, or adoption, let&apos;s talk.</h2>
+                <p className="body-copy">
+                  I&apos;ll be at ETHCC in Cannes from March 31 to April 5, 2026 and I&apos;m especially interested in
+                  conversations around tokenization, market infrastructure, wallets, and the operational layer behind
+                  real adoption.
+                </p>
+                <div className="action-row">
+                  <a href="mailto:devinsonpena@gmail.com" className="button-primary">
+                    Email me
+                  </a>
+                  <a href="https://www.linkedin.com/in/devinsonpena/" target="_blank" rel="noopener noreferrer" className="button-link">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <div className="link-panel">
+                <a href="mailto:devinsonpena@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/devinsonpena/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+                <a href="/docs/devinson-pena-cv.pdf" target="_blank" rel="noopener noreferrer">
+                  CV
+                </a>
+                <a href="/docs/hslu-cas-paper.pdf" target="_blank" rel="noopener noreferrer">
+                  Paper
+                </a>
+                <a href="/docs/chopdot-brief.pdf" target="_blank" rel="noopener noreferrer">
+                  ChopDot brief
+                </a>
+              </div>
             </div>
           </div>
         </section>
