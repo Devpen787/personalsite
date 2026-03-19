@@ -31,6 +31,8 @@ export default function Header() {
     { href: '/contact', label: 'Contact' },
   ]
 
+  const isHomeRoute = pathname === '/' || pathname === '/mono'
+
   return (
     <header className="site-header">
       <div className="site-header__bar">
@@ -40,13 +42,21 @@ export default function Header() {
 
         <nav className="site-nav">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className={pathname === item.href ? 'is-active' : ''}>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={item.href === '/' ? (isHomeRoute ? 'is-active' : '') : pathname === item.href ? 'is-active' : ''}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="site-controls">
+          <Link href={pathname === '/mono' ? '/' : '/mono'} className="button-link hidden lg:inline-flex">
+            {pathname === '/mono' ? 'Default theme' : 'Mono study'}
+          </Link>
+
           <Link href="/contact" className="button-primary hidden md:inline-flex">
             Let&apos;s talk
           </Link>
@@ -87,11 +97,14 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={pathname === item.href ? 'is-active' : ''}
+                className={item.href === '/' ? (isHomeRoute ? 'is-active' : '') : pathname === item.href ? 'is-active' : ''}
               >
                 {item.label}
               </Link>
             ))}
+            <Link href={pathname === '/mono' ? '/' : '/mono'} onClick={() => setIsMobileMenuOpen(false)} className="button-link w-fit">
+              {pathname === '/mono' ? 'Default theme' : 'Mono study'}
+            </Link>
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="button-primary mt-1 w-fit">
               Let&apos;s talk
             </Link>

@@ -97,7 +97,7 @@ export default function Projects() {
           <div className="container-max stack-lg">
             <div className="page-hero">
               <p className="section-label">Selected work</p>
-              <h1 className="display-subtitle">A small set of real proof, not placeholder case studies.</h1>
+              <h1 className="page-title">A small set of real proof, not placeholder case studies.</h1>
               <p className="page-hero__copy">
                 I would rather show a few real pieces of work than dress the page up with invented projects. These are
                 the outputs that best represent where my attention and effort have gone over the last phase of my
@@ -114,6 +114,7 @@ export default function Projects() {
                         src={item.image}
                         alt={item.imageAlt ?? item.title}
                         fill
+                        unoptimized
                         className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 36vw"
                       />

@@ -42,7 +42,7 @@ export default function Experience() {
           <div className="container-max stack-lg">
             <div className="page-hero">
               <p className="section-label">Background</p>
-              <h1 className="display-subtitle">The through-line in my work has been clarity under complexity.</h1>
+              <h1 className="page-title">The through-line in my work has been clarity under complexity.</h1>
               <p className="page-hero__copy">
                 My background is not a straight crypto career story. It is a product, GTM, enablement, and
                 stakeholder-alignment story that increasingly moved toward the kinds of systems where trust, incentives,
