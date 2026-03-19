@@ -13,9 +13,10 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Devinson Peña - Web3 Builder & Strategy Leader',
-  description: 'Curious mind in motion. I build tools, tell stories, and help bold teams grow — with a foot in the future.',
-  keywords: ['Web3', 'Blockchain', 'Strategy', 'Polkadot', 'NFT', 'Developer'],
+  title: 'Devinson Peña | Web3 Product, Partnerships & GTM',
+  description:
+    'Zurich-based Web3 operator focused on tokenization, onchain products, and the product-commercial layer that helps adoption happen in practice.',
+  keywords: ['Web3', 'Tokenization', 'Onchain Products', 'Product Management', 'Strategic Partnerships', 'GTM'],
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',

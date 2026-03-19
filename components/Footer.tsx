@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              © 2025 Devinson Peña. All rights reserved.
+              © 2026 Devinson Peña. All rights reserved.
             </p>
           </div>
           
@@ -25,12 +25,12 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="/Devinson_Pena_Resume.pdf"
+              href="/docs/devinson-pena-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
             >
-              Resume
+              CV
             </a>
           </div>
         </div>
