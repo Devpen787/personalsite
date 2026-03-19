@@ -36,10 +36,10 @@ export default function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color:var(--surface)]/90 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-[color:var(--surface)]/88 backdrop-blur">
       <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-display text-2xl font-medium tracking-tight text-[var(--ink)]">
+        <div className="flex h-16 items-center justify-between border-b border-[var(--line)]">
+          <Link href="/" className="font-display text-[1.7rem] font-medium tracking-[-0.03em] text-[var(--ink)]">
             Devinson Peña
           </Link>
 
@@ -60,7 +60,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleDarkMode}
-              className="rounded-full border border-[var(--line)] bg-[var(--panel)] p-2 transition-opacity duration-200 hover:opacity-80"
+              className="rounded-full p-2 text-[var(--muted)] transition-colors duration-200 hover:text-[var(--accent-strong)]"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
@@ -80,7 +80,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="rounded-full border border-[var(--line)] bg-[var(--panel)] p-2 transition-opacity duration-200 hover:opacity-80 md:hidden"
+              className="rounded-full p-2 text-[var(--muted)] transition-colors duration-200 hover:text-[var(--accent-strong)] md:hidden"
               aria-label="Toggle mobile menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="border-t border-[var(--line)] py-4 md:hidden">
+          <nav className="border-b border-[var(--line)] py-4 md:hidden">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
