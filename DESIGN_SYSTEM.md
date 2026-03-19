@@ -1,7 +1,7 @@
 # Editorial Operator UI System
 
 ## Purpose
-This site should present Devinson Peña as a credible Web3 operator with a clear point of view. It is not a startup landing page, not a consultant brochure, and not a crypto-engineer template.
+This site should present Devinson Peña as a credible Web3 leader with a clear point of view. It is not a startup landing page, not a consultant brochure, and not a crypto-engineer template.
 
 The design system exists to make that positioning obvious through structure, hierarchy, spacing, and restraint.
 

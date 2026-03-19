@@ -119,7 +119,7 @@ export default function Home() {
             <div className="hero-panel">
               <div className="hero-grid">
                 <div className="hero-copy">
-                  <p className="section-label">Zurich-based operator in Web3</p>
+                  <p className="section-label">Zurich-based product, partnerships, and GTM leader in Web3</p>
                   <h1 className="display-title">Devinson Peña</h1>
                   <p className="hero-statement">Making complex Web3 products clearer, more usable, and easier to adopt.</p>
 
