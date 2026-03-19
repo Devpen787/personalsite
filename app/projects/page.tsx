@@ -1,10 +1,24 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 
-const work = [
+type WorkCard = {
+  title: string
+  label: string
+  href: string
+  linkLabel: string
+  summary: string
+  bullets: string[]
+  image?: string
+  imageAlt?: string
+}
+
+const work: WorkCard[] = [
   {
     title: 'CAS Blockchain at HSLU',
     label: 'Research',
+    image: '/images/hslu-cas-photo.jpeg',
+    imageAlt: 'Devinson Peña at the HSLU Blockchain CAS presentation',
     href: '/docs/hslu-cas-paper.pdf',
     linkLabel: 'Open paper',
     summary:
@@ -28,6 +42,8 @@ const work = [
   {
     title: 'Builder programs and ecosystem work',
     label: 'Ecosystem exposure',
+    image: '/images/polkadot-hackathon.jpeg',
+    imageAlt: 'Devinson Peña with the Polkadot hackathon group',
     href: '#events',
     linkLabel: 'See events',
     summary:
@@ -92,6 +108,17 @@ export default function Projects() {
             <div className="proof-grid">
               {work.map((item, index) => (
                 <article key={item.title} className={`proof-card ${index === 0 ? 'proof-card--featured' : ''}`}>
+                  {item.image ? (
+                    <div className={`proof-card__media ${index === 0 ? 'proof-card__media--featured' : ''}`}>
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt ?? item.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 36vw"
+                      />
+                    </div>
+                  ) : null}
                   <div className="proof-card__top">
                     <div>
                       <p className="section-label">{item.label}</p>

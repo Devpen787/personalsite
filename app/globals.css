@@ -263,6 +263,14 @@
     @apply lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-start lg:gap-8;
   }
 
+  .proof-card__media {
+    @apply relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[var(--surface-muted)];
+  }
+
+  .proof-card__media--featured {
+    @apply lg:row-span-3 lg:min-h-[320px];
+  }
+
   .proof-card__top {
     @apply flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between;
   }

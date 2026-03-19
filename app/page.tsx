@@ -2,6 +2,18 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 
+type ProofCard = {
+  title: string
+  type: string
+  href: string
+  cta: string
+  summary: string
+  bullets: string[]
+  featured?: boolean
+  image?: string
+  imageAlt?: string
+}
+
 const focusAreas = [
   {
     title: 'Tokenization',
@@ -35,10 +47,12 @@ const principles = [
   },
 ]
 
-const proofCards = [
+const proofCards: ProofCard[] = [
   {
     title: 'CAS Blockchain at HSLU',
     type: 'Research',
+    image: '/images/hslu-cas-photo.jpeg',
+    imageAlt: 'Devinson Peña at the HSLU Blockchain CAS presentation',
     href: '/docs/hslu-cas-paper.pdf',
     cta: 'Open paper',
     summary:
@@ -62,6 +76,8 @@ const proofCards = [
   {
     title: 'Builder programs and live rooms',
     type: 'Ecosystem exposure',
+    image: '/images/polkadot-hackathon.jpeg',
+    imageAlt: 'Devinson Peña with the Polkadot hackathon group',
     href: '/projects#events',
     cta: 'See events',
     summary: 'Zuitzerland, ZuBerlin, ETHGlobal-related environments, Breaking DePIN, and Swiss ecosystem events made the work feel real.',
@@ -90,8 +106,8 @@ const background = [
 ]
 
 export default function Home() {
-  const featuredProof = proofCards.find((card) => card.featured)!
-  const secondaryProof = proofCards.filter((card) => !card.featured)
+  const featuredProof = proofCards[0]
+  const secondaryProof = proofCards.slice(1)
 
   return (
     <div className="page-root">
@@ -233,6 +249,17 @@ export default function Home() {
 
             <div className="proof-grid">
               <article className="proof-card proof-card--featured">
+                {featuredProof.image ? (
+                  <div className="proof-card__media proof-card__media--featured">
+                    <Image
+                      src={featuredProof.image}
+                      alt={featuredProof.imageAlt ?? featuredProof.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 36vw"
+                    />
+                  </div>
+                ) : null}
                 <div className="proof-card__top">
                   <div>
                     <p className="section-label">{featuredProof.type}</p>
@@ -252,6 +279,17 @@ export default function Home() {
 
               {secondaryProof.map((card) => (
                 <article key={card.title} className="proof-card">
+                  {card.image ? (
+                    <div className="proof-card__media">
+                      <Image
+                        src={card.image}
+                        alt={card.imageAlt ?? card.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 30vw"
+                      />
+                    </div>
+                  ) : null}
                   <div className="proof-card__top">
                     <div>
                       <p className="section-label">{card.type}</p>
