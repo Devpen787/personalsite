@@ -14,6 +14,10 @@ type ProofCard = {
   cta: string
   summary: string
   bullets: string[]
+  image?: string
+  imageAlt?: string
+  logo?: string
+  logoAlt?: string
 }
 
 const focusAreas = [
@@ -53,6 +57,8 @@ const proofCards: ProofCard[] = [
   {
     title: 'CAS Blockchain at HSLU',
     type: 'Research',
+    image: '/images/hslu-cas-photo.jpeg',
+    imageAlt: 'Devinson Peña at the HSLU Blockchain CAS presentation',
     href: '/docs/hslu-cas-paper.pdf',
     cta: 'Open paper',
     summary: 'A DePIN tokenomics paper using Onocoy as an anchor case to test what happens when retention weakens and growth slows.',
@@ -64,11 +70,14 @@ const proofCards: ProofCard[] = [
   {
     title: 'ChopDot',
     type: 'Product experiment',
+    logo: '/images/chopdot-logo.png',
+    logoAlt: 'ChopDot logo',
     href: '/docs/chopdot-brief.pdf',
     cta: 'Read brief',
-    summary: 'A wallet-based coordination experiment built around one practical question: what breaks first when group expenses move onchain?',
+    summary: 'A Polkadot-native group expense app that keeps coordination offchain while anchoring final closeout and settlement proof onchain through a PVM smart contract.',
     bullets: [
-      'The real friction was not settlement. It was social clarity, confidence, and knowing what was happening at each step.',
+      'The product now supports closeout-driven settlement for both DOT and USDC with a hybrid wallet model across Polkadot assets and Polkadot Hub contract writes.',
+      'The core product lesson stayed the same: social clarity and confidence matter as much as raw settlement capability.',
     ],
   },
   {
@@ -137,7 +146,8 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                     Over the last decade I have worked across product, partnerships, GTM, onboarding, and delivery in
                     environments where the real challenge was whether people could understand the product well enough to
                     trust it, implement it, and move on it. That is the perspective I now bring to tokenization,
-                    onchain products, and adoption.
+                    onchain products, adoption, and practical AI workflows where automation and agent tooling need to
+                    become usable in the real world.
                   </p>
 
                   <div className="action-row">
@@ -155,6 +165,7 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                   <div className="chip-row">
                     <span className="meta-chip">Zurich</span>
                     <span className="meta-chip">English / Spanish / German</span>
+                    <span className="meta-chip">AI workflows & automation</span>
                     <span className="meta-chip">ETHCC Cannes 2026</span>
                   </div>
                 </div>
@@ -250,21 +261,35 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
 
             <div className="proof-grid">
               <article className="proof-card proof-card--featured proof-card--textonly">
-                <div className="proof-card__top">
-                  <div>
-                    <p className="section-label">{featuredProof.type}</p>
-                    <h2 className="proof-title">{featuredProof.title}</h2>
+                {featuredProof.image ? (
+                  <div className="proof-card__media proof-card__media--featured">
+                    <Image
+                      src={featuredProof.image}
+                      alt={featuredProof.imageAlt ?? featuredProof.title}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 36vw"
+                    />
                   </div>
-                  <a href={featuredProof.href} target="_blank" rel="noopener noreferrer" className="button-link">
-                    {featuredProof.cta}
-                  </a>
+                ) : null}
+                <div className="proof-card__content">
+                  <div className="proof-card__top">
+                    <div>
+                      <p className="section-label">{featuredProof.type}</p>
+                      <h2 className="proof-title">{featuredProof.title}</h2>
+                    </div>
+                    <a href={featuredProof.href} target="_blank" rel="noopener noreferrer" className="button-link">
+                      {featuredProof.cta}
+                    </a>
+                  </div>
+                  <p className="proof-summary">{featuredProof.summary}</p>
+                  <ul className="proof-list">
+                    {featuredProof.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="proof-summary">{featuredProof.summary}</p>
-                <ul className="proof-list">
-                  {featuredProof.bullets.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
               </article>
 
               {secondaryProof.map((card, index) => (
@@ -284,6 +309,18 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                   <div className="proof-card__top">
                     <div>
                       <p className="section-label">{card.type}</p>
+                      {card.logo ? (
+                        <div className="proof-card__brand">
+                          <Image
+                            src={card.logo}
+                            alt={card.logoAlt ?? `${card.title} logo`}
+                            fill
+                            unoptimized
+                            className="object-contain"
+                            sizes="180px"
+                          />
+                        </div>
+                      ) : null}
                       <h2 className="proof-title">{card.title}</h2>
                     </div>
                     <a
@@ -311,11 +348,11 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
           <div className="container-max stack-lg">
             <div className="section-head section-head--split">
               <div className="section-head__meta">
-                <p className="section-label">Background</p>
+              <p className="section-label">Background</p>
                 <p className="section-title">The through-line in my background is making messy products easier to sell, implement, and use.</p>
               </div>
               <p className="section-description">
-                Different sectors, same recurring pattern: where the team needs more structure, clearer translation, and more trust in the product workflow.
+                Different sectors, same recurring pattern: where the team needs more structure, clearer translation, and more trust in the product workflow. More recently that has also meant AI-assisted tooling, automation, and agent-based ways of working that need to be practical rather than theatrical.
               </p>
             </div>
 

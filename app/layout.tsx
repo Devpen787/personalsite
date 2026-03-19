@@ -16,8 +16,8 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: 'Devinson Peña | Web3 Product, Partnerships & Adoption',
   description:
-    'Editorial portfolio for Devinson Peña, a Zurich-based Web3 leader focused on product, partnerships, tokenization, and real-world adoption.',
-  keywords: ['Web3', 'Tokenization', 'Onchain Products', 'Product Management', 'Strategic Partnerships', 'Adoption'],
+    'Editorial portfolio for Devinson Peña, a Zurich-based Web3 leader focused on product, partnerships, tokenization, AI workflows, and real-world adoption.',
+  keywords: ['Web3', 'Tokenization', 'Onchain Products', 'Product Management', 'Strategic Partnerships', 'Adoption', 'AI Workflows', 'Automation'],
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',

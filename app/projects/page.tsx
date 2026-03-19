@@ -11,6 +11,8 @@ type WorkCard = {
   bullets: string[]
   image?: string
   imageAlt?: string
+  logo?: string
+  logoAlt?: string
 }
 
 const work: WorkCard[] = [
@@ -31,12 +33,15 @@ const work: WorkCard[] = [
   {
     title: 'ChopDot',
     label: 'Product experiment',
+    logo: '/images/chopdot-logo.png',
+    logoAlt: 'ChopDot logo',
     href: '/docs/chopdot-brief.pdf',
     linkLabel: 'Read brief',
     summary:
-      'A wallet-based coordination experiment built around a simple but revealing question: where do trust, clarity, and user confidence break down when group expenses move onchain?',
+      'A Polkadot-native group expense app where everyday coordination stays offchain and final group closeout is anchored onchain with settlement proof recorded through a PVM smart contract.',
     bullets: [
-      'Showed that the hardest product problem was not payment settlement, but social coordination and confidence.',
+      'The current release supports closeout-driven settlement for both DOT and USDC using a hybrid wallet model.',
+      'It reinforced that the hardest product problem is not just payment execution, but social coordination, clarity, and confidence at each step.',
     ],
   },
   {
@@ -123,6 +128,18 @@ export default function Projects() {
                   <div className="proof-card__top">
                     <div>
                       <p className="section-label">{item.label}</p>
+                      {item.logo ? (
+                        <div className="proof-card__brand">
+                          <Image
+                            src={item.logo}
+                            alt={item.logoAlt ?? `${item.title} logo`}
+                            fill
+                            unoptimized
+                            className="object-contain"
+                            sizes="180px"
+                          />
+                        </div>
+                      ) : null}
                       <h2 className="proof-title">{item.title}</h2>
                     </div>
                     <a

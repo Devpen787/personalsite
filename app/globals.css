@@ -323,7 +323,7 @@
   }
 
   .proof-card--textonly {
-    @apply lg:grid-cols-[minmax(0,1.1fr)_minmax(260px,0.9fr)];
+    @apply lg:grid-cols-[minmax(320px,0.92fr)_minmax(0,1.08fr)];
   }
 
   .proof-card__media {
@@ -331,15 +331,23 @@
   }
 
   .proof-card__media--featured {
-    @apply lg:row-span-3 lg:min-h-[320px];
+    @apply lg:min-h-[320px];
   }
 
   .proof-card__media--compact {
     @apply aspect-[16/9];
   }
 
+  .proof-card__content {
+    @apply flex h-full flex-col gap-4;
+  }
+
   .proof-card__top {
     @apply flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between;
+  }
+
+  .proof-card__brand {
+    @apply relative mt-3 h-12 w-[160px] overflow-hidden rounded-[14px] border border-[var(--line)] bg-[var(--surface-muted)] p-2;
   }
 
   .proof-title {
