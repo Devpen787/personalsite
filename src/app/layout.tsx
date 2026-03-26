@@ -6,12 +6,15 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Devinson Peña",
   description:
-    "Web3 product, partnerships, and adoption. Based in Zurich. Building, writing, and showing up.",
+    "Product, partnerships, GTM, Web3 adoption, and practical AI workflows. Based in Zurich. Building, writing, and showing up.",
   keywords: [
     "Web3",
     "tokenization",
     "product",
     "partnerships",
+    "GTM",
+    "AI workflows",
+    "automation",
     "Zurich",
     "Polkadot",
     "DePIN",
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devinson Peña",
     description:
-      "Web3 product, partnerships, and adoption. Based in Zurich.",
+      "Product, partnerships, GTM, Web3 adoption, and practical AI workflows. Based in Zurich.",
     type: "website",
   },
 };

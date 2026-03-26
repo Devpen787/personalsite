@@ -8,21 +8,19 @@ export const metadata: Metadata = {
 
 export default function Frequency() {
   return (
-    <section className="section" style={{ paddingTop: "5rem" }}>
+    <section className="section" style={{ paddingTop: "var(--section-pad-y-top)" }}>
       <div className="page-shell">
-        <div style={{ marginBottom: 48 }}>
+        <div style={{ marginBottom: "var(--block-gap)" }}>
           <p
-            className="font-mono mb-3"
+            className="label mb-3"
             style={{
-              fontSize: 11,
               color: "var(--accent)",
               letterSpacing: "0.1em",
-              textTransform: "uppercase",
             }}
           >
             You found it
           </p>
-          <h1 className="font-serif mb-5" style={{ fontSize: "1.75rem", lineHeight: 1.3 }}>
+          <h1 className="font-serif page-heading mb-5" style={{ lineHeight: 1.3 }}>
             This is the page that doesn&rsquo;t exist on the nav.
           </h1>
           <p className="text-body" style={{ color: "var(--muted)", lineHeight: 1.75 }}>

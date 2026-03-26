@@ -41,50 +41,85 @@ const socialLinks = [
   },
 ];
 
+const talkTopics = [
+  {
+    title: "Product clarity",
+    body: "When the capability is real but the product still asks too much of the reader, buyer, or user.",
+  },
+  {
+    title: "Partnerships and GTM",
+    body: "When the story across internal teams, clients, and partners needs tightening before the product can move.",
+  },
+  {
+    title: "Adoption and onboarding",
+    body: "Especially in tokenization, onchain products, wallets, and workflow-heavy systems where trust is part of the product.",
+  },
+  {
+    title: "Practical AI",
+    body: "Where automation and agent tooling need to become useful inside real work rather than stay as demos.",
+  },
+];
+
+const proofRows = [
+  {
+    title: "CAS Blockchain at HSLU",
+    body: "A DePIN tokenomics paper, presentation, and one of the stronger Swiss rooms for serious blockchain, tokenization, and legal-commercial discussion.",
+    links: [
+      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
+      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
+      { href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/", label: "Program" },
+    ],
+  },
+  {
+    title: "ChopDot",
+    body: "A Polkadot-native group expense app that keeps proving that social clarity matters as much as settlement capability.",
+    links: [
+      { href: "/docs/chopdot-brief.pdf", label: "Brief" },
+      { href: "https://www.chopdot.xyz/", label: "Website" },
+      { href: "https://app.chopdot.xyz/pots", label: "App" },
+    ],
+  },
+  {
+    title: "AI and automation",
+    body: "A thread that runs from my 2017 MSc thesis through adtech workflow automation to today’s agent tooling and practical model use.",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/work", label: "Work" },
+    ],
+  },
+];
+
 export default function Home() {
   return (
-    <section className="section" style={{ paddingTop: "5rem" }}>
+    <section className="section" style={{ paddingTop: "var(--section-pad-y-top)" }}>
       <div className="page-shell">
         <div
-          className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
-          style={{ marginBottom: 40 }}
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
+          style={{ marginBottom: "var(--block-gap)" }}
         >
-          <div
-            style={{
-              width: 88,
-              height: 88,
-              borderRadius: "50%",
-              overflow: "hidden",
-              flexShrink: 0,
-            }}
-          >
+          <div className="hero-portrait relative shrink-0 overflow-hidden rounded-full">
             <Image
               src="/images/Devinson_Photo.jpeg"
               alt="Devinson Peña"
-              width={88}
-              height={88}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              width={240}
+              height={240}
+              className="h-full w-full object-cover"
+              sizes="(max-width: 639px) 88px, (max-width: 767px) 96px, (max-width: 1023px) 108px, 120px"
               priority
             />
           </div>
           <div>
-            <h1
-              className="font-serif"
-              style={{ fontSize: "1.6rem", lineHeight: 1.2, marginBottom: 4 }}
-            >
-              Devinson Peña
-            </h1>
+            <h1 className="font-serif hero-title mb-1">Devinson Peña</h1>
             <p
-              className="text-body"
+              className="hero-tagline text-body mb-3"
               style={{
                 color: "var(--muted)",
                 fontStyle: "italic",
-                marginBottom: 12,
               }}
             >
               I like to build things that make complex systems feel simple.
             </p>
-            <div className="flex gap-3.5">
+            <div className="hero-social flex gap-3.5 md:gap-4">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -106,78 +141,120 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ marginBottom: 48 }}>
+        <div className="measure" style={{ marginBottom: "1.5rem" }}>
           <p className="text-body" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-            The products that matter most right now are the ones sitting at the edge of adoption:
-            tokenization infrastructure that institutions need to trust before they move, onchain
-            tools that real users need to understand before they commit, and AI workflows that need to
-            feel practical before anyone automates anything. I&rsquo;ve spent the last decade in the
-            gap between what a product can do and what people actually believe it can do for them.
-            That gap is where I work best.
+            I work on products that have to earn trust before they earn adoption. That has taken me through product,
+            partnerships, GTM, onboarding, delivery, automation, and now more deliberate work in Web3 and practical AI.
+            The current work is only the latest layer. It sits on top of more than fifteen years around product structure,
+            commercial translation, client complexity, and the organizational work that decides whether a capable system becomes something people actually use.
+            I tend to be most useful when the system is technically sound but the path to understanding, trust, and use is still messy.
           </p>
         </div>
 
-        <p className="label mb-2.5">Now</p>
-        <ul style={{ listStyle: "none", padding: 0, margin: "0 0 48px 0" }}>
-          {[
-            "Building ChopDot: group expenses on Polkadot",
-            "Writing about DePIN tokenomics and incentive design",
-            "ETHCC Cannes, March 31 to April 5, 2026",
-            "Open to freelance, consulting, and collabs",
-          ].map((item) => (
-            <li
-              key={item}
-              className="text-body"
-              style={{
-                color: "var(--muted)",
-                padding: "8px 0",
-                borderBottom: "1px solid var(--faint)",
-                lineHeight: 1.6,
-              }}
+        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <div className="flex items-center gap-3 flex-wrap">
+            <a
+              href="https://cal.eu/devinson/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
             >
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        <p className="label mb-2.5">Explore</p>
-        <div className="flex flex-col" style={{ marginBottom: 48 }}>
-          {[
-            { href: "/about", label: "About", desc: "The thread through all of it" },
-            { href: "/work", label: "Work", desc: "Projects and proof" },
-            { href: "/log", label: "Log", desc: "Writing, reading, events" },
-          ].map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="flex items-center justify-between"
-              style={{
-                padding: "12px 0",
-                borderBottom: "1px solid var(--faint)",
-                textDecoration: "none",
-                color: "var(--ink)",
-              }}
-            >
-              <span style={{ fontWeight: 500 }}>{link.label}</span>
-              <span className="text-small" style={{ color: "var(--muted)" }}>
-                {link.desc} &rarr;
-              </span>
-            </Link>
-          ))}
+              Book a call
+            </a>
+            <a href="mailto:devinsonpena@gmail.com" className="btn btn-outline">
+              Email me
+            </a>
+          </div>
         </div>
 
-        <p className="label mb-2.5">Get in touch</p>
-        <p className="text-small mb-4" style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-          Want to talk about tokenization, onchain products, or a collaboration? Book a call directly.
-        </p>
-        <a
-          href="https://cal.eu/devinson/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
-        >
-          Book a call
-        </a>
+        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">If we talk</p>
+          <div className="flex flex-col">
+            {talkTopics.map((topic) => (
+              <div
+                key={topic.title}
+                style={{
+                  padding: "12px 0",
+                  borderBottom: "1px solid var(--faint)",
+                }}
+              >
+                <p className="text-body" style={{ fontWeight: 500, marginBottom: 4 }}>
+                  {topic.title}
+                </p>
+                <p className="text-small" style={{ color: "var(--muted)" }}>
+                  {topic.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="measure-wide" style={{ marginBottom: "var(--block-gap)" }}>
+          <div className="flex flex-col">
+            {proofRows.map((row) => (
+              <div
+                key={row.title}
+                style={{
+                  padding: "12px 0 14px",
+                  borderBottom: "1px solid var(--faint)",
+                }}
+              >
+                <p className="text-body" style={{ fontWeight: 500, marginBottom: 4 }}>
+                  {row.title}
+                </p>
+                <p className="text-small" style={{ color: "var(--muted)", marginBottom: 8 }}>
+                  {row.body}
+                </p>
+                <div className="flex flex-wrap gap-x-3 gap-y-2">
+                  {row.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.href.startsWith("/") ? undefined : "_blank"}
+                      rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                      className="work-inline-link text-small"
+                    >
+                      {link.label} &rarr;
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <div className="flex flex-col">
+            {[
+              { href: "/about", label: "About", desc: "The thread through all of it" },
+              { href: "/work", label: "Work", desc: "Projects and proof" },
+              { href: "/log", label: "Log", desc: "Writing, reading, events" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-center justify-between"
+                style={{
+                  padding: "12px 0",
+                  borderBottom: "1px solid var(--faint)",
+                  textDecoration: "none",
+                  color: "var(--ink)",
+                }}
+              >
+                <span style={{ fontWeight: 500 }}>{link.label}</span>
+                <span className="text-small" style={{ color: "var(--muted)" }}>
+                  {link.desc}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="measure">
+          <p className="text-small" style={{ color: "var(--muted)", lineHeight: 1.6 }}>
+            If any of that sounds useful, the cleanest next step is a short call or a direct note.
+          </p>
+        </div>
       </div>
     </section>
   );
