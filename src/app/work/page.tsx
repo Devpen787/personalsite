@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 type WorkLink = { href: string; label: string };
 type WorkMedia = { src: string; alt: string; width: number; height: number };
+type WorkMark = { src: string; alt: string; width: number; height: number };
 type WorkItem = {
   label: string;
   title: string;
@@ -15,6 +16,7 @@ type WorkItem = {
   body: string;
   links: WorkLink[];
   image?: WorkMedia;
+  mark?: WorkMark;
 };
 
 type LegacyItem = {
@@ -56,9 +58,21 @@ const workItems: WorkItem[] = [
     label: "Product",
     title: "ChopDot",
     intro:
-      "A Polkadot-native group expense app where day-to-day coordination stays offchain and final group closeout is anchored onchain through a PVM smart contract.",
+      "I created ChopDot because group expenses are one of those ordinary coordination problems that immediately expose whether a product is actually clear enough to use with other people. It is now a Polkadot-native group expense app where day-to-day coordination stays offchain and final group closeout is anchored onchain through a PVM smart contract.",
     body:
       "It keeps proving the same product lesson. The hard part is rarely settlement alone. It is whether a group understands what is happening, trusts the workflow, and can move without second-guessing each step. That is the kind of problem I am drawn to because it sits at the edge between capability and use.",
+    image: {
+      src: "/images/polkadot-hackathon.jpeg",
+      alt: "Polkadot Hackathon team photo",
+      width: 960,
+      height: 1280,
+    },
+    mark: {
+      src: "/images/chopdot-logo.png",
+      alt: "ChopDot logo",
+      width: 64,
+      height: 64,
+    },
     links: [
       { href: "/docs/chopdot-brief.pdf", label: "Brief" },
       { href: "https://www.chopdot.xyz/", label: "Website" },
@@ -71,10 +85,11 @@ const workItems: WorkItem[] = [
     intro:
       "My interest in AI did not start with the current model cycle. My MSc thesis in 2017 was already focused on practical applications of AI, and a meaningful part of my work in adtech and at Digitl involved automation, workflow design, and building systems that let teams move with less manual friction.",
     body:
-      "What is different now is that some of the tooling is finally usable enough to matter inside real work. I spend time with agents, Cursor, Claude, Codex, and workflow automation because this is the first moment when some of these systems can improve decision-making and execution without feeling like theatre.",
+      "What is different now is that some of the tooling is finally usable enough to matter inside real work. I have started packaging a public proof repo around the parts I find most useful: reviewable agent operations, browser workflows with approval gates, and research loops that stay tied to evidence instead of drift.",
     links: [
-      { href: "/about", label: "About" },
-      { href: "https://cal.eu/devinson/30min", label: "Talk" },
+      { href: "https://github.com/Devpen787/practical-agent-systems", label: "Public repo" },
+      { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/agentops-lite", label: "AgentOps" },
+      { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/browser-queue", label: "Browser queue" },
     ],
   },
 ];
@@ -107,8 +122,9 @@ const ecosystemItems: EcosystemItem[] = [
     href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/",
   },
   {
-    name: "PBA-X",
+    name: "Polkadot Blockchain Academy (PBA-X)",
     body: "A stronger Polkadot-native room for strategy, ecosystem thinking, and getting closer to how the network actually works.",
+    href: "https://polkadot.academy/",
   },
   {
     name: "ZuBerlin",
@@ -164,7 +180,18 @@ export default function Work() {
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div>
                         <p className="label mb-2">{item.label}</p>
-                        <h2 className="work-subheading font-serif font-semibold">{item.title}</h2>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          {item.mark ? (
+                            <Image
+                              src={item.mark.src}
+                              alt={item.mark.alt}
+                              width={item.mark.width}
+                              height={item.mark.height}
+                              style={{ width: 28, height: 28, borderRadius: 8 }}
+                            />
+                          ) : null}
+                          <h2 className="work-subheading font-serif font-semibold">{item.title}</h2>
+                        </div>
                       </div>
 
                       <div className="flex flex-wrap gap-x-3 gap-y-2">
@@ -197,7 +224,18 @@ export default function Work() {
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                     <div>
                       <p className="label mb-2">{item.label}</p>
-                      <h2 className="work-subheading font-serif font-semibold">{item.title}</h2>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {item.mark ? (
+                          <Image
+                            src={item.mark.src}
+                            alt={item.mark.alt}
+                            width={item.mark.width}
+                            height={item.mark.height}
+                            style={{ width: 28, height: 28, borderRadius: 8 }}
+                          />
+                        ) : null}
+                        <h2 className="work-subheading font-serif font-semibold">{item.title}</h2>
+                      </div>
                     </div>
 
                     <div className="flex flex-wrap gap-x-3 gap-y-2">
