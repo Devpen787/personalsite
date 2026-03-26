@@ -11,22 +11,22 @@ const typeConfig: Record<LogType, { label: string; className: string }> = {
   read:    { label: "Read",    className: "log-type--read"    },
   event:   { label: "Event",   className: "log-type--event"   },
   shipped: { label: "Shipped", className: "log-type--shipped" },
-  note:    { label: "Note",    className: ""                  },
+  note:    { label: "Note",    className: "log-type--note"   },
 };
 
 export default function Log() {
   return (
     <section className="section" style={{ paddingTop: "5rem" }}>
       <div className="page-shell">
-        <p className="label mb-4">Log</p>
+        <p className="label mb-2.5">Log</p>
         <h1
-          className="font-serif mb-6"
-          style={{ fontSize: "2rem", lineHeight: 1.25 }}
+          className="font-serif mb-5"
+          style={{ fontSize: "1.75rem", lineHeight: 1.25 }}
         >
           Writing, reading, and doing
         </h1>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-1.5 mb-7">
           {Object.entries(typeConfig).map(([key, { label, className }]) => (
             <span key={key} className={`log-type ${className}`}>
               {label}
@@ -56,11 +56,13 @@ export default function Log() {
                     </a>
                   )}
                 </div>
-                <p className="font-medium text-sm mt-1">{entry.title}</p>
+                <p className="font-medium mt-1" style={{ fontSize: 14 }}>
+                  {entry.title}
+                </p>
                 {entry.body && (
                   <p
-                    className="text-small mt-1"
-                    style={{ color: "var(--muted)" }}
+                    className="mt-1"
+                    style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.55 }}
                   >
                     {entry.body}
                   </p>

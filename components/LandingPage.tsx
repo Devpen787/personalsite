@@ -12,6 +12,8 @@ type ProofCard = {
   type: string
   href: string
   cta: string
+  secondaryHref?: string
+  secondaryCta?: string
   summary: string
   bullets: string[]
   image?: string
@@ -61,10 +63,13 @@ const proofCards: ProofCard[] = [
     imageAlt: 'Devinson Peña at the HSLU Blockchain CAS presentation',
     href: '/docs/hslu-cas-paper.pdf',
     cta: 'Open paper',
-    summary: 'A DePIN tokenomics paper using Onocoy as an anchor case to test what happens when retention weakens and growth slows.',
+    secondaryHref: '/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf',
+    secondaryCta: 'View presentation',
+    summary:
+      "HSLU's CAS Blockchain is one of the more established Swiss programs at the intersection of blockchain technology, tokenization, crypto finance, and legal-compliance practice. My transfer paper used Onocoy as an anchor case to test what happens when retention weakens and growth slows.",
     bullets: [
-      'It sharpened how I think about incentives, resilience, and the point where a product story starts to lose credibility.',
-      'It mattered because the work was forced to survive under pressure rather than ideal assumptions.',
+      'What made the program useful was the mix of academic structure, cohort discussion, and direct exposure to the Swiss blockchain ecosystem around business models, tokenization, and market practice.',
+      'The transfer work sharpened how I think about incentives, resilience, and the point where a product story starts to lose credibility.',
     ],
   },
   {
@@ -140,7 +145,7 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                 <div className="hero-copy">
                   <p className="section-label">Zurich-based product, partnerships, and GTM leader in Web3</p>
                   <h1 className="display-title">Devinson Peña</h1>
-                  <p className="hero-statement">Making complex Web3 products clearer, more usable, and easier to adopt.</p>
+                  <p className="hero-statement">Making Web3 products clearer, more usable, and easier to adopt.</p>
 
                   <p className="body-large">
                     Over the last decade I have worked across product, partnerships, GTM, onboarding, and delivery in
@@ -249,7 +254,7 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
 
         <section id="work" className="section-shell">
           <div className="container-max stack-lg">
-            <div className="section-head">
+            <div className="section-head section-head--split">
               <div className="section-head__meta">
                 <p className="section-label">Selected work</p>
                 <p className="section-title">A small set of real proof, not placeholders</p>
@@ -260,7 +265,7 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
             </div>
 
             <div className="proof-grid">
-              <article className="proof-card proof-card--featured proof-card--textonly">
+              <article className="proof-card proof-card--featured">
                 {featuredProof.image ? (
                   <div className="proof-card__media proof-card__media--featured">
                     <Image
@@ -273,22 +278,33 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                     />
                   </div>
                 ) : null}
-                <div className="proof-card__content">
-                  <div className="proof-card__top">
+                <div className="proof-card__content proof-card__content--featured">
+                  <div className="proof-card__header">
                     <div>
                       <p className="section-label">{featuredProof.type}</p>
-                      <h2 className="proof-title">{featuredProof.title}</h2>
+                      <div className="proof-card__headline-row">
+                        <h2 className="proof-title">{featuredProof.title}</h2>
+                        <div className="proof-card__actions">
+                          <a href={featuredProof.href} target="_blank" rel="noopener noreferrer" className="button-link">
+                            {featuredProof.cta}
+                          </a>
+                          {featuredProof.secondaryHref && featuredProof.secondaryCta ? (
+                            <a href={featuredProof.secondaryHref} target="_blank" rel="noopener noreferrer" className="button-link">
+                              {featuredProof.secondaryCta}
+                            </a>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
-                    <a href={featuredProof.href} target="_blank" rel="noopener noreferrer" className="button-link">
-                      {featuredProof.cta}
-                    </a>
                   </div>
-                  <p className="proof-summary">{featuredProof.summary}</p>
-                  <ul className="proof-list">
-                    {featuredProof.bullets.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <div className="proof-card__details">
+                    <p className="proof-summary">{featuredProof.summary}</p>
+                    <ul className="proof-list">
+                      {featuredProof.bullets.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </article>
 
@@ -309,19 +325,21 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
                   <div className="proof-card__top">
                     <div>
                       <p className="section-label">{card.type}</p>
-                      {card.logo ? (
-                        <div className="proof-card__brand">
-                          <Image
-                            src={card.logo}
-                            alt={card.logoAlt ?? `${card.title} logo`}
-                            fill
-                            unoptimized
-                            className="object-contain"
-                            sizes="180px"
-                          />
-                        </div>
-                      ) : null}
-                      <h2 className="proof-title">{card.title}</h2>
+                      <div className={`proof-card__title-row${card.logo ? ' proof-card__title-row--with-logo' : ''}`}>
+                        {card.logo ? (
+                          <div className="proof-card__brand">
+                            <Image
+                              src={card.logo}
+                              alt={card.logoAlt ?? `${card.title} logo`}
+                              fill
+                              unoptimized
+                              className="object-contain"
+                              sizes="112px"
+                            />
+                          </div>
+                        ) : null}
+                        <h2 className="proof-title">{card.title}</h2>
+                      </div>
                     </div>
                     <a
                       href={card.href}
@@ -348,7 +366,7 @@ export default function LandingPage({ mono = false }: LandingPageProps) {
           <div className="container-max stack-lg">
             <div className="section-head section-head--split">
               <div className="section-head__meta">
-              <p className="section-label">Background</p>
+                <p className="section-label">Background</p>
                 <p className="section-title">The through-line in my background is making messy products easier to sell, implement, and use.</p>
               </div>
               <p className="section-description">

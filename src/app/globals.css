@@ -40,7 +40,7 @@ body {
   background: var(--surface);
   color: var(--ink);
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.7;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -54,7 +54,7 @@ body {
    Typography
    ─────────────────────────────────── */
 h1, h2, h3 {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -63,7 +63,7 @@ h1, h2, h3 {
    Layout
    ─────────────────────────────────── */
 .page-shell {
-  max-width: 680px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -89,6 +89,34 @@ a:hover {
   text-decoration-color: var(--ink);
 }
 
+.social-icon-link:hover {
+  color: var(--ink);
+}
+
+/* Inline accent links — personalsite-preview.jsx InlineLink */
+.prose-about a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  transition: border-color 0.15s ease;
+}
+
+.prose-about a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.work-inline-link {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--faint);
+  text-underline-offset: 3px;
+}
+
+.work-inline-link:hover {
+  color: var(--ink);
+  text-decoration-color: var(--muted);
+}
+
 /* ───────────────────────────────────
    Components
    ─────────────────────────────────── */
@@ -100,27 +128,21 @@ a:hover {
   z-index: 50;
   background: var(--surface);
   border-bottom: 1px solid var(--faint);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.site-nav.is-scrolled {
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
-  max-width: 1080px;
+  height: 50px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 .nav-name {
-  font-family: "JetBrains Mono", Menlo, monospace;
-  font-size: 0.875rem;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.02em;
   text-decoration: none;
@@ -129,12 +151,12 @@ a:hover {
 
 .nav-links {
   display: flex;
-  gap: 1.75rem;
+  gap: 1.25rem;
   align-items: center;
 }
 
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 13px;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.15s ease;
@@ -149,9 +171,14 @@ a:hover {
   font-weight: 500;
 }
 
-/* Section spacing */
+/* Hidden nav item (~) uses accent when active — matches preview */
+.nav-link.nav-link-secret.active {
+  color: var(--accent);
+}
+
+/* Section spacing — matches personalsite-preview.jsx page chrome */
 .section {
-  padding: 5rem 0;
+  padding: 5rem 0 4rem;
 }
 
 .section + .section {
@@ -164,9 +191,9 @@ a:hover {
 
 /* Label */
 .label {
-  font-family: "JetBrains Mono", Menlo, monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--muted);
@@ -200,10 +227,10 @@ a:hover {
 .tag {
   display: inline-flex;
   align-items: center;
-  font-family: "JetBrains Mono", Menlo, monospace;
-  font-size: 0.6875rem;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
   font-weight: 500;
-  padding: 0.25rem 0.625rem;
+  padding: 3px 10px;
   border-radius: 999px;
   border: 1px solid var(--faint);
   color: var(--muted);
@@ -219,7 +246,7 @@ a:hover {
 
 /* Log entry */
 .log-entry {
-  padding: 1.25rem 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--faint);
 }
 
@@ -228,21 +255,32 @@ a:hover {
 }
 
 .log-date {
-  font-family: "JetBrains Mono", Menlo, monospace;
-  font-size: 0.75rem;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
   color: var(--muted);
 }
 
 .log-type {
-  font-family: "JetBrains Mono", Menlo, monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 0.125rem 0.5rem;
+  padding: 2px 8px;
   border-radius: 3px;
   background: var(--faint);
   color: var(--muted);
+  white-space: nowrap;
+}
+
+.log-type--note {
+  background: rgba(0, 0, 0, 0.05);
+  color: #6b6b6b;
+}
+
+.dark .log-type--note {
+  background: rgba(255, 255, 255, 0.06);
+  color: #8a8a88;
 }
 
 .log-type--wrote {
@@ -281,10 +319,10 @@ a:hover {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  font-size: 0.875rem;
+  gap: 6px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 8px 18px;
   border-radius: var(--radius);
   text-decoration: none;
   transition: all 0.15s ease;
@@ -293,6 +331,11 @@ a:hover {
 .btn-primary {
   background: var(--ink);
   color: var(--surface);
+}
+
+.dark .btn-primary {
+  background: #ededec;
+  color: #111110;
 }
 
 .btn-primary:hover {
@@ -334,10 +377,20 @@ a:hover {
   50% { opacity: 0.4; }
 }
 
-/* Footer */
+/* Footer — preview-style compact strip */
 .site-footer {
   border-top: 1px solid var(--faint);
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
+}
+
+.text-body {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.text-small {
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* Image */
@@ -348,18 +401,8 @@ a:hover {
   width: 100%;
 }
 
-/* Mobile nav */
-.mobile-nav {
-  display: none;
-}
-
+/* Mobile nav — visibility toggled in Nav.tsx (Tailwind sm:hidden / hidden sm:flex) */
 @media (max-width: 639px) {
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-nav {
-    display: flex;
-  }
   .mobile-menu {
     position: fixed;
     inset: 0;
@@ -397,8 +440,8 @@ a:hover {
 .theme-toggle {
   background: none;
   border: 1px solid var(--faint);
-  border-radius: var(--radius);
-  padding: 0.375rem;
+  border-radius: 5px;
+  padding: 4px 5px;
   cursor: pointer;
   color: var(--muted);
   display: flex;
