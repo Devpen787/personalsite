@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-
-const FREQUENCY_KEY = "personalsite-frequency-unlocked";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,21 +13,8 @@ const links = [
 
 export function Nav() {
   const pathname = usePathname();
-  const router = useRouter();
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [frequencyUnlocked, setFrequencyUnlocked] = useState(false);
-  const dotClickCount = useRef(0);
-  const dotClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const persistFrequencyUnlock = useCallback(() => {
-    try {
-      localStorage.setItem(FREQUENCY_KEY, "1");
-    } catch {
-      /* ignore */
-    }
-    setFrequencyUnlocked(true);
-  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -39,21 +24,6 @@ export function Nav() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
-  useEffect(() => {
-    try {
-      if (localStorage.getItem(FREQUENCY_KEY) === "1" || pathname === "/frequency") {
-        setFrequencyUnlocked(true);
-        if (pathname === "/frequency") {
-          localStorage.setItem(FREQUENCY_KEY, "1");
-        }
-      }
-    } catch {
-      if (pathname === "/frequency") {
-        setFrequencyUnlocked(true);
-      }
-    }
-  }, [pathname]);
-
   function toggleTheme() {
     const next = !dark;
     setDark(next);
@@ -61,55 +31,33 @@ export function Nav() {
     localStorage.setItem("theme", next ? "dark" : "light");
   }
 
-  function registerDotClick() {
-    dotClickCount.current += 1;
-    if (dotClickTimer.current) {
-      clearTimeout(dotClickTimer.current);
-    }
-    if (dotClickCount.current >= 3) {
-      dotClickCount.current = 0;
-      persistFrequencyUnlock();
-      router.push("/frequency");
-    } else {
-      dotClickTimer.current = setTimeout(() => {
-        dotClickCount.current = 0;
-      }, 1500);
-    }
-  }
+  const isMargin = pathname === "/margin" || pathname === "/frequency";
 
-  function handleDotClick(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-    registerDotClick();
-  }
-
-  const isFrequency = pathname === "/frequency";
+  const TurtleMark = ({ active = false }: { active?: boolean }) => (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      style={{ display: "block", color: active ? "var(--accent)" : "currentColor" }}
+    >
+      <ellipse cx="7" cy="8.2" rx="4.1" ry="3.2" fill="currentColor" opacity="0.92" />
+      <circle cx="11.8" cy="8" r="1.1" fill="currentColor" />
+      <circle cx="4.4" cy="4.8" r="0.8" fill="currentColor" />
+      <circle cx="4.4" cy="11.4" r="0.8" fill="currentColor" />
+      <circle cx="8.7" cy="4.8" r="0.8" fill="currentColor" />
+      <circle cx="8.7" cy="11.4" r="0.8" fill="currentColor" />
+      <path d="M4.9 6.4h4.2M4.9 10h4.2M7 5.4v5.6" stroke="var(--surface)" strokeWidth="0.7" strokeLinecap="round" opacity="0.85" />
+      <circle cx="12.2" cy="7.7" r="0.14" fill="var(--surface)" />
+    </svg>
+  );
 
   return (
     <nav className="site-nav">
       <div className="nav-inner">
         <Link href="/" className="nav-name">
-          devinson
-          <span
-            onClick={handleDotClick}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                e.stopPropagation();
-                registerDotClick();
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            style={{
-              color: frequencyUnlocked || isFrequency ? "var(--accent)" : "inherit",
-              cursor: "pointer",
-              userSelect: "none",
-            }}
-            aria-label="Secret link hint"
-          >
-            .
-          </span>
+          devinson.
         </Link>
 
         {/* Desktop — hidden below sm so it never stacks beside the mobile menu control */}
@@ -123,16 +71,16 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          {frequencyUnlocked && (
-            <Link
-              href="/frequency"
-              className={`nav-link nav-link-secret font-mono ${pathname === "/frequency" ? "active" : ""}`}
-              style={{ letterSpacing: "0.05em" }}
-              title="Frequency"
-            >
-              ~
-            </Link>
-          )}
+          <Link
+            href="/margin"
+            className={`nav-link nav-link-secret ${isMargin ? "active" : ""}`}
+            title="Margin"
+            aria-label="Margin"
+          >
+            <span className="nav-secret-mark">
+              <TurtleMark active={isMargin} />
+            </span>
+          </Link>
           <button
             className="theme-toggle"
             onClick={toggleTheme}
@@ -186,11 +134,11 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            {frequencyUnlocked && (
-              <Link href="/frequency" className="nav-link font-mono">
-                ~
-              </Link>
-            )}
+            <Link href="/margin" className="nav-link" aria-label="Margin">
+              <span className="nav-secret-mark">
+                <TurtleMark active={isMargin} />
+              </span>
+            </Link>
             <button type="button" onClick={toggleTheme} className="btn-outline btn">
               {dark ? "Light mode" : "Dark mode"}
             </button>

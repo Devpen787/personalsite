@@ -188,6 +188,17 @@ a:hover {
   text-decoration-color: var(--muted);
 }
 
+.marginal-note {
+  max-width: 30rem;
+  margin-top: 0.15rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--faint);
+  font-size: var(--text-small-fs);
+  line-height: 1.7;
+  color: var(--muted);
+  font-style: italic;
+}
+
 /* ───────────────────────────────────
    Components
    ─────────────────────────────────── */
@@ -246,6 +257,20 @@ a:hover {
 /* Hidden nav item (~) uses accent when active — matches preview */
 .nav-link.nav-link-secret.active {
   color: var(--accent);
+}
+
+.nav-secret-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #2f7d32;
+  transform: translateY(1px);
+}
+
+.dark .nav-secret-mark {
+  color: #67c96a;
 }
 
 /* Section spacing — more air on larger viewports */

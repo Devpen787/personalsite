@@ -23,6 +23,7 @@ type WorkItem = {
   title: string;
   intro: string;
   body: string;
+  marginalia?: string;
   links: WorkLink[];
   image?: WorkMedia;
   mark?: WorkMark;
@@ -48,6 +49,8 @@ const workItems: WorkItem[] = [
       "My transfer paper looked at DePIN tokenomics under stress, using Onocoy as the anchor case to test what happens when incentive systems face slower growth, weaker retention, and real network pressure.",
     body:
       "What stayed with me just as much as the paper was the room around it. HSLU has become one of the more credible Swiss bridges between blockchain technology, tokenization, crypto finance, and legal-commercial practice. The value was having to make the story hold up in front of people close enough to the work to challenge it properly.",
+    marginalia:
+      "The useful part was seeing exactly where the argument stopped surviving informed questions.",
     image: {
       src: "/images/hslu-cas-photo.jpeg",
       alt: "CAS Blockchain at HSLU presentation room",
@@ -71,6 +74,8 @@ const workItems: WorkItem[] = [
       "I created ChopDot for the Build Resilient Apps with Polkadot Cloud hackathon because group expenses are one of those ordinary coordination problems that expose very quickly whether a product is actually clear enough to use with other people. The first version won second prize across all themes. It is now a Polkadot-native group expense app where day-to-day coordination stays offchain and group closeout is anchored on Polkadot Hub through an EVM smart contract.",
     body:
       "The Feb–Mar build made that bet more concrete. ChopDot now computes settlement legs offchain, anchors a closeout snapshot on Polkadot Hub, and records settlement proof per leg for DOT and USDC pots. The prize money mattered less than the momentum that followed. It was enough to keep iterating, apply for follow-on support, and test whether the idea could survive beyond the hackathon room. The recurring lesson is that payment is rarely the hard part. Shared clarity is.",
+    marginalia:
+      "Group expenses keep teaching me the same lesson. Money moves last. Shared understanding has to move first.",
     image: {
       src: "/images/polkadot-hackathon.jpeg",
       alt: "Polkadot Hackathon team photo",
@@ -101,6 +106,8 @@ const workItems: WorkItem[] = [
       "My interest in AI did not start with the current model cycle. My MSc thesis in 2017 was already focused on AI integration inside real organizations, and a meaningful part of my work in adtech and at Digitl involved automation, workflow design, and building systems that let teams move with less manual friction.",
     body:
       "What still feels current from that thesis is not the tooling landscape. It is the argument that adoption, buy-in, process fit, and human judgment matter as much as the technology itself. What is different now is that some of the tooling is finally usable enough to matter inside real work. The public repo is where I am packaging the parts I find most useful: reviewable agent operations, browser workflows with approval gates, and research loops that stay tied to evidence instead of drift.",
+    marginalia:
+      "Most AI talk still starts with the model. I keep caring more about whether the workflow is livable once the novelty wears off.",
     links: [
       { href: "/docs/master-thesis-ai-integration-2017.pdf", label: "2017 thesis" },
       { href: "https://github.com/Devpen787/practical-agent-systems", label: "Public repo" },
@@ -239,6 +246,9 @@ export default function Work() {
                       <p className="text-body" style={{ color: "var(--muted)" }}>
                         {item.body}
                       </p>
+                      {item.marginalia ? (
+                        <p className="marginal-note">{item.marginalia}</p>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -287,6 +297,9 @@ export default function Work() {
                     <p className="text-body" style={{ color: "var(--muted)" }}>
                       {item.body}
                     </p>
+                    {item.marginalia ? (
+                      <p className="marginal-note">{item.marginalia}</p>
+                    ) : null}
                   </div>
                 </div>
               )}
