@@ -10,6 +10,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/go/linkedin',
+        destination: '/?utm_source=linkedin&utm_medium=social&utm_campaign=personal_site',
+        permanent: false,
+      },
+      {
+        source: '/go/work',
+        destination: '/work?utm_source=linkedin&utm_medium=social&utm_campaign=personal_site_work',
+        permanent: false,
+      },
+    ]
+  },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
