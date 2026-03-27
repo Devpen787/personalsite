@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Work | Devinson Peña",
@@ -196,15 +197,19 @@ export default function Work() {
 
                       <div className="flex flex-wrap gap-x-3 gap-y-2">
                         {item.links.map((link) => (
-                          <a
+                          <TrackedLink
                             key={link.label}
                             href={link.href}
                             target={link.href.startsWith("/") ? undefined : "_blank"}
                             rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
                             className="work-inline-link text-small"
+                            eventName={`${item.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_${link.label
+                              .toLowerCase()
+                              .replace(/[^a-z0-9]+/g, "_")}_click`}
+                            eventProps={{ location: "work_item" }}
                           >
                             {link.label} &rarr;
-                          </a>
+                          </TrackedLink>
                         ))}
                       </div>
                     </div>
@@ -240,15 +245,19 @@ export default function Work() {
 
                     <div className="flex flex-wrap gap-x-3 gap-y-2">
                       {item.links.map((link) => (
-                        <a
+                        <TrackedLink
                           key={link.label}
                           href={link.href}
                           target={link.href.startsWith("/") ? undefined : "_blank"}
                           rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
                           className="work-inline-link text-small"
+                          eventName={`${item.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_${link.label
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, "_")}_click`}
+                          eventProps={{ location: "work_item" }}
                         >
                           {link.label} &rarr;
-                        </a>
+                        </TrackedLink>
                       ))}
                     </div>
                   </div>
@@ -314,14 +323,16 @@ export default function Work() {
                     {item.name}
                   </p>
                   {item.href ? (
-                    <a
+                    <TrackedLink
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="work-inline-link text-small"
+                      eventName={`ecosystem_${item.name.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_click`}
+                      eventProps={{ location: "work_ecosystem" }}
                     >
                       Visit &rarr;
-                    </a>
+                    </TrackedLink>
                   ) : null}
                 </div>
                 <p className="text-small" style={{ color: "var(--muted)" }}>

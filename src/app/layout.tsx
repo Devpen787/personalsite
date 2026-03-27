@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PosthogProvider } from "@/components/PosthogProvider";
 
 export const metadata: Metadata = {
   title: "Devinson Peña",
@@ -62,9 +63,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <PosthogProvider>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </PosthogProvider>
       </body>
     </html>
   );

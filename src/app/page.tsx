@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 
 const socialLinks = [
   {
@@ -153,17 +154,24 @@ export default function Home() {
 
         <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
           <div className="flex items-center gap-3 flex-wrap">
-            <a
+            <TrackedLink
               href="https://cal.eu/devinson/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
+              eventName="book_call_click"
+              eventProps={{ location: "home_intro" }}
             >
               Book a call
-            </a>
-            <a href="mailto:devinsonpena@gmail.com" className="btn btn-outline">
+            </TrackedLink>
+            <TrackedLink
+              href="mailto:devinsonpena@gmail.com"
+              className="btn btn-outline"
+              eventName="email_click"
+              eventProps={{ location: "home_intro" }}
+            >
               Email me
-            </a>
+            </TrackedLink>
           </div>
         </div>
 
@@ -207,15 +215,19 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-x-3 gap-y-2">
                   {row.links.map((link) => (
-                    <a
+                    <TrackedLink
                       key={link.label}
                       href={link.href}
                       target={link.href.startsWith("/") ? undefined : "_blank"}
                       rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
                       className="work-inline-link text-small"
+                      eventName={`${row.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_${link.label
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "_")}_click`}
+                      eventProps={{ location: "home_proof" }}
                     >
                       {link.label} &rarr;
-                    </a>
+                    </TrackedLink>
                   ))}
                 </div>
               </div>
