@@ -73,9 +73,10 @@ const proofRows = [
   },
   {
     title: "ChopDot",
-    body: "A Polkadot-native group expense app that keeps proving that social clarity matters as much as settlement capability.",
+    body: "Started at the Polkadot Cloud hackathon, won second prize, and now anchors group closeout and settlement proof on Polkadot Hub through an EVM smart contract.",
     links: [
       { href: "/docs/chopdot-brief.pdf", label: "Brief" },
+      { href: "https://devpost.com/software/chopdot", label: "Devpost" },
       { href: "https://www.chopdot.xyz/", label: "Website" },
       { href: "https://app.chopdot.xyz/pots", label: "App" },
     ],

@@ -420,6 +420,30 @@ a:hover {
   background: transparent;
 }
 
+.log-filter {
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: var(--label-fs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--faint);
+  color: var(--muted);
+  background: transparent;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.log-filter:hover {
+  border-color: var(--muted);
+  color: var(--ink);
+}
+
+.log-filter--active {
+  background: var(--faint);
+  color: var(--ink);
+}
+
 .btn-outline:hover {
   border-color: var(--muted);
 }

@@ -8,7 +8,15 @@ export const metadata: Metadata = {
 };
 
 type WorkLink = { href: string; label: string };
-type WorkMedia = { src: string; alt: string; width: number; height: number };
+type WorkMedia = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  aspectRatio?: string;
+  objectPosition?: string;
+  maxWidth?: string;
+};
 type WorkMark = { src: string; alt: string; width: number; height: number };
 type WorkItem = {
   label: string;
@@ -37,14 +45,15 @@ const workItems: WorkItem[] = [
     label: "Research",
     title: "CAS Blockchain at HSLU",
     intro:
-      "My transfer paper looked at DePIN tokenomics under stress, using Onocoy as an anchor case to study what happens when incentive systems face slower growth, weaker retention, and real network pressure.",
+      "My transfer paper looked at DePIN tokenomics under stress, using Onocoy as the anchor case to test what happens when incentive systems face slower growth, weaker retention, and real network pressure.",
     body:
-      "What stayed with me just as much as the paper was the setting around it. HSLU has become one of the more credible Swiss bridges between blockchain technology, tokenization, crypto finance, and legal-commercial practice. The value of that room was not just academic. It was a cohort of people forcing each other to make the story hold up when the audience is informed, skeptical, and close enough to the work to challenge it properly.",
+      "What stayed with me just as much as the paper was the room around it. HSLU has become one of the more credible Swiss bridges between blockchain technology, tokenization, crypto finance, and legal-commercial practice. The value was having to make the story hold up in front of people close enough to the work to challenge it properly.",
     image: {
       src: "/images/hslu-cas-photo.jpeg",
       alt: "CAS Blockchain at HSLU presentation room",
       width: 1200,
       height: 900,
+      maxWidth: "22rem",
     },
     links: [
       { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
@@ -59,14 +68,17 @@ const workItems: WorkItem[] = [
     label: "Product",
     title: "ChopDot",
     intro:
-      "I created ChopDot because group expenses are one of those ordinary coordination problems that immediately expose whether a product is actually clear enough to use with other people. It is now a Polkadot-native group expense app where day-to-day coordination stays offchain and final group closeout is anchored onchain through a PVM smart contract.",
+      "I created ChopDot for the Build Resilient Apps with Polkadot Cloud hackathon because group expenses are one of those ordinary coordination problems that expose very quickly whether a product is actually clear enough to use with other people. The first version won second prize across all themes. It is now a Polkadot-native group expense app where day-to-day coordination stays offchain and group closeout is anchored on Polkadot Hub through an EVM smart contract.",
     body:
-      "It keeps proving the same product lesson. The hard part is rarely settlement alone. It is whether a group understands what is happening, trusts the workflow, and can move without second-guessing each step. That is the kind of problem I am drawn to because it sits at the edge between capability and use.",
+      "The Feb–Mar build made that bet more concrete. ChopDot now computes settlement legs offchain, anchors a closeout snapshot on Polkadot Hub, and records settlement proof per leg for DOT and USDC pots. The prize money mattered less than the momentum that followed. It was enough to keep iterating, apply for follow-on support, and test whether the idea could survive beyond the hackathon room. The recurring lesson is that payment is rarely the hard part. Shared clarity is.",
     image: {
       src: "/images/polkadot-hackathon.jpeg",
       alt: "Polkadot Hackathon team photo",
       width: 960,
       height: 1280,
+      aspectRatio: "4 / 3",
+      objectPosition: "center 34%",
+      maxWidth: "22rem",
     },
     mark: {
       src: "/images/chopdot-logo.png",
@@ -76,6 +88,8 @@ const workItems: WorkItem[] = [
     },
     links: [
       { href: "/docs/chopdot-brief.pdf", label: "Brief" },
+      { href: "https://devpost.com/software/chopdot", label: "Devpost" },
+      { href: "https://dorahacks.io/buidl/41088", label: "Closeout proof" },
       { href: "https://www.chopdot.xyz/", label: "Website" },
       { href: "https://app.chopdot.xyz/pots", label: "App" },
     ],
@@ -84,10 +98,11 @@ const workItems: WorkItem[] = [
     label: "AI and automation",
     title: "A practical thread",
     intro:
-      "My interest in AI did not start with the current model cycle. My MSc thesis in 2017 was already focused on practical applications of AI, and a meaningful part of my work in adtech and at Digitl involved automation, workflow design, and building systems that let teams move with less manual friction.",
+      "My interest in AI did not start with the current model cycle. My MSc thesis in 2017 was already focused on AI integration inside real organizations, and a meaningful part of my work in adtech and at Digitl involved automation, workflow design, and building systems that let teams move with less manual friction.",
     body:
-      "What is different now is that some of the tooling is finally usable enough to matter inside real work. I have started packaging a public proof repo around the parts I find most useful: reviewable agent operations, browser workflows with approval gates, and research loops that stay tied to evidence instead of drift.",
+      "What still feels current from that thesis is not the tooling landscape. It is the argument that adoption, buy-in, process fit, and human judgment matter as much as the technology itself. What is different now is that some of the tooling is finally usable enough to matter inside real work. The public repo is where I am packaging the parts I find most useful: reviewable agent operations, browser workflows with approval gates, and research loops that stay tied to evidence instead of drift.",
     links: [
+      { href: "/docs/master-thesis-ai-integration-2017.pdf", label: "2017 thesis" },
       { href: "https://github.com/Devpen787/practical-agent-systems", label: "Public repo" },
       { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/agentops-lite", label: "AgentOps" },
       { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/browser-queue", label: "Browser queue" },
@@ -134,7 +149,7 @@ const ecosystemItems: EcosystemItem[] = [
   },
   {
     name: "Zuitzerland",
-    body: "A Swiss builder and community surface that made the local ecosystem feel more real and less abstract.",
+    body: "A month-long residency around governance, network societies, AI x crypto, and future living. Useful because it widened the conversation beyond products into the institutions and social contracts those products eventually sit inside.",
     href: "https://www.zuitzerland.ch/",
   },
   {
@@ -165,20 +180,23 @@ export default function Work() {
           {workItems.map((item) => (
             <article key={item.title} style={{ borderTop: "1px solid var(--faint)", paddingTop: 18 }}>
               {item.image ? (
-                <div className="grid gap-6 lg:gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-start">
-                  <div style={{ maxWidth: "28rem" }}>
+                <div className="grid gap-5 lg:gap-7 lg:grid-cols-[minmax(18rem,22rem)_minmax(0,1fr)] lg:items-start">
+                  <div style={{ maxWidth: item.image.maxWidth ?? "28rem" }}>
                     <Image
                       src={item.image.src}
                       alt={item.image.alt}
                       width={item.image.width}
                       height={item.image.height}
                       className="portrait"
-                      style={{ aspectRatio: "16 / 10" }}
+                      style={{
+                        aspectRatio: item.image.aspectRatio ?? "16 / 10",
+                        objectPosition: item.image.objectPosition,
+                      }}
                     />
                   </div>
 
-                  <div className="measure-tight" style={{ minWidth: 0 }}>
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div style={{ minWidth: 0, maxWidth: "40rem" }}>
+                    <div className="mb-3">
                       <div>
                         <p className="label mb-2">{item.label}</p>
                         <div className="flex items-center gap-3 flex-wrap">
@@ -195,7 +213,7 @@ export default function Work() {
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-x-3 gap-y-2">
+                      <div className="flex flex-wrap gap-x-3 gap-y-2 mt-3">
                         {item.links.map((link) => (
                           <TrackedLink
                             key={link.label}
@@ -226,7 +244,7 @@ export default function Work() {
                 </div>
               ) : (
                 <div className="measure-wide" style={{ minWidth: 0 }}>
-                  <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div className="mb-3">
                     <div>
                       <p className="label mb-2">{item.label}</p>
                       <div className="flex items-center gap-3 flex-wrap">
@@ -243,7 +261,7 @@ export default function Work() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <div className="flex flex-wrap gap-x-3 gap-y-2 mt-3">
                       {item.links.map((link) => (
                         <TrackedLink
                           key={link.label}
@@ -262,7 +280,7 @@ export default function Work() {
                     </div>
                   </div>
 
-                  <div className="measure" style={{ maxWidth: "42rem" }}>
+                  <div className="measure-tight" style={{ maxWidth: "38rem" }}>
                     <p className="text-body mb-4" style={{ color: "var(--muted)" }}>
                       {item.intro}
                     </p>
