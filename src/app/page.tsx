@@ -1,6 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
+
+type ProofLink = { href: string; label: string };
+type ProofMedia = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  aspectRatio?: string;
+  objectPosition?: string;
+  maxWidth?: string;
+};
+type ProofRow = {
+  title: string;
+  body: string;
+  proof: string;
+  links: ProofLink[];
+  image: ProofMedia;
+};
 
 const socialLinks = [
   {
@@ -42,18 +59,18 @@ const socialLinks = [
   },
 ];
 
-const talkTopics = [
+const workTopics = [
   {
-    title: "Product clarity",
-    body: "When the capability is real but the product still asks too much of the reader, buyer, or user.",
+    title: "Tokenization and digital asset products",
+    body: "Where legal structure, product workflow, and client understanding all have to hold together in practice.",
   },
   {
-    title: "Partnerships and GTM",
-    body: "When the story across internal teams, clients, and partners needs tightening before the product can move.",
+    title: "Wallets, coordination, and trust-heavy flows",
+    body: "Especially where shared state, money movement, or permissions become hard to understand once more than one person is involved.",
   },
   {
-    title: "Adoption and onboarding",
-    body: "Especially in tokenization, onchain products, wallets, and workflow-heavy systems where trust is part of the product.",
+    title: "Partnerships, GTM, and adoption work",
+    body: "When a product is capable but the story, onboarding, or internal alignment still needs tightening before it can move.",
   },
   {
     title: "Practical AI",
@@ -61,19 +78,21 @@ const talkTopics = [
   },
 ];
 
-const proofRows = [
-  {
-    title: "CAS Blockchain at HSLU",
-    body: "A DePIN tokenomics paper, presentation, and one of the stronger Swiss rooms for serious blockchain, tokenization, and legal-commercial discussion.",
-    links: [
-      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
-      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
-      { href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/", label: "Program" },
-    ],
-  },
+const proofRows: ProofRow[] = [
   {
     title: "ChopDot",
-    body: "Started at the Polkadot Cloud hackathon, won second prize, and now anchors group closeout and settlement proof on Polkadot Hub through an EVM smart contract.",
+    body: "A Polkadot-native group expense app built around one practical problem: shared money only works when the group understands what is happening.",
+    proof:
+      "Started at a global Polkadot hackathon, won second prize, and now anchors closeout proof on Polkadot Hub through an EVM smart contract.",
+    image: {
+      src: "/images/polkadot-hackathon.jpeg",
+      alt: "ChopDot Polkadot hackathon team photo",
+      width: 960,
+      height: 1280,
+      aspectRatio: "4 / 3",
+      objectPosition: "center 34%",
+      maxWidth: "12rem",
+    },
     links: [
       { href: "/docs/chopdot-brief.pdf", label: "Brief" },
       { href: "https://devpost.com/software/chopdot", label: "Devpost" },
@@ -82,11 +101,85 @@ const proofRows = [
     ],
   },
   {
-    title: "AI and automation",
-    body: "A thread that runs from my 2017 MSc thesis through adtech workflow automation to today’s agent tooling and practical model use.",
+    title: "YourTurn",
+    body: "A booking and resale product for studios, therapists, and coaching-led services where a reservation behaves more like a pass than a disposable slot.",
+    proof: 'Built at ETHGlobal Cannes 2026 and won the Hedera "No Solidity Allowed" track.',
+    image: {
+      src: "/images/yourturn-product.png",
+      alt: "YourTurn product screenshot",
+      width: 1176,
+      height: 718,
+      aspectRatio: "16 / 10",
+      objectPosition: "center top",
+      maxWidth: "12rem",
+    },
     links: [
-      { href: "/about", label: "About" },
-      { href: "/work", label: "Work" },
+      { href: "https://github.com/Devpen787/yourturn", label: "GitHub" },
+      { href: "https://yourturn-sage.vercel.app/", label: "Live app" },
+      { href: "https://ethglobal.com/showcase/yourturn-zb56r", label: "Showcase" },
+    ],
+  },
+  {
+    title: "CAS Blockchain at HSLU",
+    body: "Formal blockchain work in one of the more serious Swiss rooms for tokenization, market structure, and legal-commercial discussion.",
+    proof:
+      "Included a DePIN tokenomics paper, presentation, and a stronger public signal of serious blockchain credibility in Switzerland.",
+    image: {
+      src: "/images/hslu-cas-photo.jpeg",
+      alt: "CAS Blockchain at HSLU presentation room",
+      width: 1200,
+      height: 900,
+      aspectRatio: "16 / 10",
+      objectPosition: "center center",
+      maxWidth: "12rem",
+    },
+    links: [
+      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
+      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
+      {
+        href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/",
+        label: "Program",
+      },
+    ],
+  },
+  {
+    title: "DePIN / tokenization research",
+    body: "Research focused on what happens when incentive systems face real pressure instead of living inside optimistic assumptions.",
+    proof:
+      "Used Onocoy as an anchor case to test tokenomics under slower growth, weaker retention, and real network stress, then turned that work into a live stress-test dashboard.",
+    image: {
+      src: "/images/depin-history-friction.png",
+      alt: "DePIN research slide showing token price friction versus physical capacity",
+      width: 320,
+      height: 180,
+      aspectRatio: "16 / 9",
+      objectPosition: "center center",
+      maxWidth: "12rem",
+    },
+    links: [
+      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
+      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
+      { href: "https://depin-stress-test.vercel.app/", label: "Dashboard" },
+    ],
+  },
+  {
+    title: "AI / agent systems",
+    body: "A practical thread focused on reviewable agents, browser workflows with approval gates, and research flows tied to evidence.",
+    proof:
+      "Built as public proof through practical-agent-systems rather than keeping the work trapped in private notes or demos.",
+      image: {
+        src: "/images/agent-systems-workflow.svg",
+        alt: "Practical agent systems repo artifact board",
+      width: 960,
+      height: 540,
+      aspectRatio: "16 / 9",
+      objectPosition: "center center",
+      maxWidth: "12rem",
+    },
+    links: [
+      { href: "https://github.com/Devpen787/practical-agent-systems", label: "Repo" },
+      { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/agentops-lite", label: "AgentOps" },
+      { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/browser-queue", label: "Browser queue" },
     ],
   },
 ];
@@ -119,7 +212,7 @@ export default function Home() {
                 fontStyle: "italic",
               }}
             >
-              I like to build things that make complex systems feel simple.
+              I build products and operating systems that make complex systems easier to trust and use.
             </p>
             <div className="hero-social flex gap-3.5 md:gap-4">
               {socialLinks.map((s) => (
@@ -145,11 +238,9 @@ export default function Home() {
 
         <div className="measure" style={{ marginBottom: "1.5rem" }}>
           <p className="text-body" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-            I work on products that have to earn trust before they earn adoption. That has taken me through product,
-            partnerships, GTM, onboarding, delivery, automation, and now more deliberate work in Web3 and practical AI.
-            The current work is only the latest layer. It sits on top of more than fifteen years around product structure,
-            commercial translation, client complexity, and the organizational work that decides whether a capable system becomes something people actually use.
-            I tend to be most useful when the system is technically sound but the path to understanding, trust, and use is still messy.
+            I’m based in Zurich and work across product, partnerships, tokenization, onchain products, and practical AI.
+            The thread through all of it is the same: technically capable systems only become useful once the workflow
+            around them is clear enough for real people to trust and use.
           </p>
         </div>
 
@@ -176,10 +267,69 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
-          <p className="label mb-2.5">If we talk</p>
+        <div className="measure-wide" style={{ marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">Selected work</p>
           <div className="flex flex-col">
-            {talkTopics.map((topic) => (
+            {proofRows.map((row) => (
+              <div
+                key={row.title}
+                style={{
+                  padding: "12px 0 14px",
+                  borderBottom: "1px solid var(--faint)",
+                }}
+              >
+                <div className="grid gap-4 sm:grid-cols-[minmax(8rem,12rem)_minmax(0,1fr)] sm:items-start">
+                  <div style={{ maxWidth: row.image.maxWidth ?? "12rem" }}>
+                    <Image
+                      src={row.image.src}
+                      alt={row.image.alt}
+                      width={row.image.width}
+                      height={row.image.height}
+                      className="portrait"
+                      style={{
+                        aspectRatio: row.image.aspectRatio ?? "4 / 3",
+                        objectPosition: row.image.objectPosition,
+                      }}
+                    />
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <p className="text-body" style={{ fontWeight: 500, marginBottom: 4 }}>
+                      {row.title}
+                    </p>
+                    <p className="text-small" style={{ color: "var(--muted)", marginBottom: 4 }}>
+                      {row.body}
+                    </p>
+                    <p className="text-small" style={{ color: "var(--ink)", marginBottom: 8 }}>
+                      {row.proof}
+                    </p>
+                    <div className="flex flex-wrap gap-x-3 gap-y-2">
+                      {row.links.map((link) => (
+                        <TrackedLink
+                          key={link.label}
+                          href={link.href}
+                          target={link.href.startsWith("/") ? undefined : "_blank"}
+                          rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                          className="work-inline-link text-small"
+                          eventName={`${row.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_${link.label
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, "_")}_click`}
+                          eventProps={{ location: "home_proof" }}
+                        >
+                          {link.label} &rarr;
+                        </TrackedLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">What I work on</p>
+          <div className="flex flex-col">
+            {workTopics.map((topic) => (
               <div
                 key={topic.title}
                 style={{
@@ -198,54 +348,29 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="measure-wide" style={{ marginBottom: "var(--block-gap)" }}>
-          <div className="flex flex-col">
-            {proofRows.map((row) => (
-              <div
-                key={row.title}
-                style={{
-                  padding: "12px 0 14px",
-                  borderBottom: "1px solid var(--faint)",
-                }}
-              >
-                <p className="text-body" style={{ fontWeight: 500, marginBottom: 4 }}>
-                  {row.title}
-                </p>
-                <p className="text-small" style={{ color: "var(--muted)", marginBottom: 8 }}>
-                  {row.body}
-                </p>
-                <div className="flex flex-wrap gap-x-3 gap-y-2">
-                  {row.links.map((link) => (
-                    <TrackedLink
-                      key={link.label}
-                      href={link.href}
-                      target={link.href.startsWith("/") ? undefined : "_blank"}
-                      rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
-                      className="work-inline-link text-small"
-                      eventName={`${row.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_${link.label
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, "_")}_click`}
-                      eventProps={{ location: "home_proof" }}
-                    >
-                      {link.label} &rarr;
-                    </TrackedLink>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">Background</p>
+          <p className="text-body" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
+            Before the current Web3 and AI work, I spent more than fifteen years across product programs, GTM,
+            onboarding, client delivery, and operating systems in environments where strong tools still needed better
+            structure, translation, and trust around how they were used.
+          </p>
         </div>
 
         <div className="measure" style={{ marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">Explore</p>
           <div className="flex flex-col">
             {[
+              { href: "/work", label: "Work", desc: "Current proof and operating history" },
               { href: "/about", label: "About", desc: "The thread through all of it" },
-              { href: "/work", label: "Work", desc: "Projects and proof" },
-              { href: "/log", label: "Log", desc: "Writing, reading, events" },
+              { href: "/log", label: "Log", desc: "Writing, reading, and signals" },
+              { href: "/docs/devinson-pena-cv.pdf", label: "CV", desc: "A cleaner document version" },
             ].map((link) => (
-              <Link
+              <TrackedLink
                 key={link.href}
                 href={link.href}
+                target={link.href.startsWith("/") ? undefined : "_blank"}
+                rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
                 className="flex items-center justify-between"
                 style={{
                   padding: "12px 0",
@@ -253,12 +378,14 @@ export default function Home() {
                   textDecoration: "none",
                   color: "var(--ink)",
                 }}
+                eventName={`${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_explore_click`}
+                eventProps={{ location: "home_explore" }}
               >
                 <span style={{ fontWeight: 500 }}>{link.label}</span>
                 <span className="text-small" style={{ color: "var(--muted)" }}>
                   {link.desc}
                 </span>
-              </Link>
+              </TrackedLink>
             ))}
           </div>
         </div>

@@ -22,11 +22,20 @@ type WorkItem = {
   label: string;
   title: string;
   intro: string;
+  proof?: string;
   body: string;
   marginalia?: string;
   links: WorkLink[];
   image?: WorkMedia;
+  supportImage?: WorkMedia;
   mark?: WorkMark;
+};
+
+type ProofItem = {
+  title: string;
+  body: string;
+  href: string;
+  label: string;
 };
 
 type LegacyItem = {
@@ -43,37 +52,14 @@ type EcosystemItem = {
 
 const workItems: WorkItem[] = [
   {
-    label: "Research",
-    title: "CAS Blockchain at HSLU",
-    intro:
-      "My transfer paper looked at DePIN tokenomics under stress, using Onocoy as the anchor case to test what happens when incentive systems face slower growth, weaker retention, and real network pressure.",
-    body:
-      "What stayed with me just as much as the paper was the room around it. HSLU has become one of the more credible Swiss bridges between blockchain technology, tokenization, crypto finance, and legal-commercial practice. The value was having to make the story hold up in front of people close enough to the work to challenge it properly.",
-    marginalia:
-      "The useful part was seeing exactly where the argument stopped surviving informed questions.",
-    image: {
-      src: "/images/hslu-cas-photo.jpeg",
-      alt: "CAS Blockchain at HSLU presentation room",
-      width: 1200,
-      height: 900,
-      maxWidth: "22rem",
-    },
-    links: [
-      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
-      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
-      {
-        href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/",
-        label: "Program",
-      },
-    ],
-  },
-  {
     label: "Product",
     title: "ChopDot",
     intro:
-      "I created ChopDot for the Build Resilient Apps with Polkadot Cloud hackathon because group expenses are one of those ordinary coordination problems that expose very quickly whether a product is actually clear enough to use with other people. The first version won second prize across all themes. It is now a Polkadot-native group expense app where day-to-day coordination stays offchain and group closeout is anchored on Polkadot Hub through an EVM smart contract.",
+      "ChopDot is a Polkadot-native group expense app that started at the Build Resilient Apps with Polkadot Cloud hackathon and kept going after the room was gone.",
+    proof:
+      "Started at a global Polkadot hackathon, won second prize, and now anchors closeout and settlement proof on Polkadot Hub through an EVM smart contract.",
     body:
-      "The Feb–Mar build made that bet more concrete. ChopDot now computes settlement legs offchain, anchors a closeout snapshot on Polkadot Hub, and records settlement proof per leg for DOT and USDC pots. The prize money mattered less than the momentum that followed. It was enough to keep iterating, apply for follow-on support, and test whether the idea could survive beyond the hackathon room. The recurring lesson is that payment is rarely the hard part. Shared clarity is.",
+      "I built it around a simple but revealing problem: shared money only works when the group understands what is happening. The current version keeps day-to-day coordination offchain, then anchors closeout and settlement proof on Polkadot Hub through an EVM smart contract. It matters to me because it keeps proving the same thing: payment is rarely the hard part. Shared clarity is.",
     marginalia:
       "Group expenses keep teaching me the same lesson. Money moves last. Shared understanding has to move first.",
     image: {
@@ -100,20 +86,142 @@ const workItems: WorkItem[] = [
     ],
   },
   {
-    label: "AI and automation",
-    title: "A practical thread",
+    label: "Hackathon build",
+    title: "YourTurn",
     intro:
-      "My interest in AI did not start with the current model cycle. My MSc thesis in 2017 was already focused on AI integration inside real organizations, and a meaningful part of my work in adtech and at Digitl involved automation, workflow design, and building systems that let teams move with less manual friction.",
+      'Built at ETHGlobal Cannes 2026, where it won the Hedera "No Solidity Allowed" track, YourTurn is a booking and resale product for studios, therapists, and coaching-led services.',
+    proof:
+      'We treated a booking more like a transferable pass and won the Hedera track by building with the SDKs rather than taking the usual Solidity route.',
     body:
-      "What still feels current from that thesis is not the tooling landscape. It is the argument that adoption, buy-in, process fit, and human judgment matter as much as the technology itself. What is different now is that some of the tooling is finally usable enough to matter inside real work. The public repo is where I am packaging the parts I find most useful: reviewable agent operations, browser workflows with approval gates, and research loops that stay tied to evidence instead of drift.",
+      "The idea was to treat a booking more like a transferable pass: something a customer can keep, resell when allowed, and verify clearly, while the provider keeps control over policy, check-in, and resale rules. We used Hedera as the trust layer for booking rights and lifecycle events, but the real product problem was making something onchain feel simple enough for ordinary users and operationally useful enough for small businesses. That is the kind of work I want more of.",
+    image: {
+      src: "/images/yourturn-product.png",
+      alt: "YourTurn product screenshot",
+      width: 1176,
+      height: 718,
+      aspectRatio: "16 / 10",
+      objectPosition: "center top",
+      maxWidth: "24rem",
+    },
+    supportImage: {
+      src: "/images/yourturn-hedera-win.png",
+      alt: "ETHGlobal Cannes 2026 Hedera winner badge for YourTurn",
+      width: 828,
+      height: 656,
+      aspectRatio: "5 / 4",
+      objectPosition: "center center",
+      maxWidth: "11rem",
+    },
+    links: [
+      { href: "https://github.com/Devpen787/yourturn", label: "GitHub" },
+      { href: "https://yourturn-sage.vercel.app/", label: "Live app" },
+      { href: "https://ethglobal.com/showcase/yourturn-zb56r", label: "Showcase" },
+    ],
+  },
+  {
+    label: "Research",
+    title: "CAS Blockchain at HSLU",
+    intro:
+      "The CAS Blockchain at HSLU gave me a more serious Swiss room for tokenization, market structure, and legal-commercial questions than most public blockchain conversations ever do.",
+    proof:
+      "Included a DePIN tokenomics paper, presentation, and a stronger public signal of serious blockchain credibility in Switzerland.",
+    body:
+      "The DePIN paper mattered, but so did the discipline of having the argument tested by people close enough to the work to push back properly. It made my interest in digital assets more concrete and more defensible. What stayed with me most was not the rhetoric around the future, but the pressure to explain why a system should survive contact with real incentives, real institutions, and real use.",
+    marginalia:
+      "The useful part was seeing exactly where the argument stopped surviving informed questions.",
+    image: {
+      src: "/images/hslu-cas-photo.jpeg",
+      alt: "CAS Blockchain at HSLU presentation room",
+      width: 1200,
+      height: 900,
+      maxWidth: "22rem",
+    },
+    links: [
+      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
+      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
+      {
+        href: "https://www.hslu.ch/de-ch/informatik/weiterbildung/digital-business-innovation/cas-blockchain/",
+        label: "Program",
+      },
+    ],
+  },
+  {
+    label: "Research",
+    title: "DePIN / tokenization research",
+    intro:
+      "I wrote the DePIN paper to test what happens when token incentive systems face real pressure instead of living inside optimistic assumptions.",
+    proof:
+      "Using Onocoy as the anchor case, I looked at slower growth, weaker retention, and what that reveals about resilience, scalability, and incentive design in practice, then pushed the model into a live stress-test dashboard.",
+    body:
+      "That work sits close to tokenization for me because it sharpened the same instinct: a structure is only interesting if it still works once the easy story disappears.",
+    image: {
+      src: "/images/depin-history-friction.png",
+      alt: "DePIN presentation slide showing token price friction versus physical capacity",
+      width: 320,
+      height: 180,
+      aspectRatio: "16 / 9",
+      objectPosition: "center center",
+      maxWidth: "22rem",
+    },
+    links: [
+      { href: "/docs/hslu-cas-paper.pdf", label: "Paper" },
+      { href: "/docs/CAS-Transferarbeit_DePIN_11032026_Final.pdf", label: "Presentation" },
+      { href: "https://depin-stress-test.vercel.app/", label: "Dashboard" },
+    ],
+  },
+  {
+    label: "AI / systems",
+    title: "AI / agent systems",
+    intro:
+      "My AI thread did not start with the current model cycle. It runs from my 2017 MSc thesis on AI integration and adoption through workflow automation in adtech and into the agent systems I am building now.",
+    proof:
+      "The practical-agent-systems repo is where I make that work inspectable in public: reviewable agent operations, browser workflows with approval gates, and research flows tied back to evidence.",
+    body:
+      "What interests me is not AI as identity, but AI as utility: systems that reduce friction, make decisions clearer, and fit into real operating work without adding noise.",
     marginalia:
       "Most AI talk still starts with the model. I keep caring more about whether the workflow is livable once the novelty wears off.",
+    image: {
+      src: "/images/agent-systems-workflow.svg",
+      alt: "Practical agent systems repo artifact board",
+      width: 960,
+      height: 540,
+      aspectRatio: "16 / 9",
+      objectPosition: "center center",
+      maxWidth: "24rem",
+    },
     links: [
       { href: "/docs/master-thesis-ai-integration-2017.pdf", label: "2017 thesis" },
       { href: "https://github.com/Devpen787/practical-agent-systems", label: "Public repo" },
       { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/agentops-lite", label: "AgentOps" },
       { href: "https://github.com/Devpen787/practical-agent-systems/tree/main/examples/browser-queue", label: "Browser queue" },
     ],
+  },
+];
+
+const proofItems: ProofItem[] = [
+  {
+    title: "ETHGlobal Cannes 2026",
+    body: "Public showcase page for YourTurn and the Hedera track win.",
+    href: "https://ethglobal.com/showcase/yourturn-zb56r",
+    label: "Showcase",
+  },
+  {
+    title: "practical-agent-systems",
+    body: "Public repo for agent operations, browser workflows, and evidence-linked research loops.",
+    href: "https://github.com/Devpen787/practical-agent-systems",
+    label: "Repo",
+  },
+  {
+    title: "2017 AI integration thesis",
+    body: "Earlier work on AI adoption, workflow fit, and organizational integration before the current model cycle.",
+    href: "/docs/master-thesis-ai-integration-2017.pdf",
+    label: "Thesis",
+  },
+  {
+    title: "ChopDot brief",
+    body: "A tighter product view of the current group-expense build and why the workflow matters.",
+    href: "/docs/chopdot-brief.pdf",
+    label: "Brief",
   },
 ];
 
@@ -135,6 +243,12 @@ const legacyItems: LegacyItem[] = [
     role: "Consulting and implementation",
     body:
       "Complex client environments where the real challenge was not just tooling, but making products easier to understand, adopt, and use with confidence.",
+  },
+  {
+    company: "Light Reaction",
+    role: "Project and account work",
+    body:
+      "Client-facing digital work where delivery, expectations, and commercial realities all had to line up cleanly enough to keep projects moving.",
   },
 ];
 
@@ -176,10 +290,11 @@ export default function Work() {
     <section className="section" style={{ paddingTop: "var(--section-pad-y-top)" }}>
       <div className="page-shell">
         <div className="measure-wide" style={{ marginBottom: "var(--block-gap)" }}>
-          <p className="label mb-2.5">Work</p>
-          <h1 className="font-serif page-heading mb-5">Selected recent work, and the line behind it.</h1>
+          <p className="label mb-2.5">Selected work</p>
+          <h1 className="font-serif page-heading mb-5">Current work and proof.</h1>
           <p className="text-body" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-            This is not a full archive. It is a view into the work I am doing now, with enough context to show the kinds of systems I keep ending up around.
+            This is the current layer of the work: products, research, and systems that show where I am actually
+            building now. The older operating thread is still here, but it sits underneath the more recent proof.
           </p>
         </div>
 
@@ -195,6 +310,7 @@ export default function Work() {
                       width={item.image.width}
                       height={item.image.height}
                       className="portrait"
+                      priority={item.title === "ChopDot"}
                       style={{
                         aspectRatio: item.image.aspectRatio ?? "16 / 10",
                         objectPosition: item.image.objectPosition,
@@ -237,12 +353,32 @@ export default function Work() {
                           </TrackedLink>
                         ))}
                       </div>
+                      {item.supportImage ? (
+                        <div style={{ marginTop: 14, maxWidth: item.supportImage.maxWidth ?? "12rem" }}>
+                          <Image
+                            src={item.supportImage.src}
+                            alt={item.supportImage.alt}
+                            width={item.supportImage.width}
+                            height={item.supportImage.height}
+                            className="portrait"
+                            style={{
+                              aspectRatio: item.supportImage.aspectRatio ?? "4 / 3",
+                              objectPosition: item.supportImage.objectPosition,
+                            }}
+                          />
+                        </div>
+                      ) : null}
                     </div>
 
                     <div className="flex flex-col gap-4">
                       <p className="text-body" style={{ color: "var(--muted)" }}>
                         {item.intro}
                       </p>
+                      {item.proof ? (
+                        <p className="text-body" style={{ color: "var(--ink)" }}>
+                          {item.proof}
+                        </p>
+                      ) : null}
                       <p className="text-body" style={{ color: "var(--muted)" }}>
                         {item.body}
                       </p>
@@ -288,12 +424,32 @@ export default function Work() {
                         </TrackedLink>
                       ))}
                     </div>
+                    {item.supportImage ? (
+                      <div style={{ marginTop: 14, maxWidth: item.supportImage.maxWidth ?? "12rem" }}>
+                        <Image
+                          src={item.supportImage.src}
+                          alt={item.supportImage.alt}
+                          width={item.supportImage.width}
+                          height={item.supportImage.height}
+                          className="portrait"
+                          style={{
+                            aspectRatio: item.supportImage.aspectRatio ?? "4 / 3",
+                            objectPosition: item.supportImage.objectPosition,
+                          }}
+                        />
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="measure-tight" style={{ maxWidth: "38rem" }}>
                     <p className="text-body mb-4" style={{ color: "var(--muted)" }}>
                       {item.intro}
                     </p>
+                    {item.proof ? (
+                      <p className="text-body mb-4" style={{ color: "var(--ink)" }}>
+                        {item.proof}
+                      </p>
+                    ) : null}
                     <p className="text-body" style={{ color: "var(--muted)" }}>
                       {item.body}
                     </p>
@@ -308,9 +464,49 @@ export default function Work() {
         </div>
 
         <div className="measure-wide" style={{ borderTop: "1px solid var(--faint)", paddingTop: 18, marginBottom: "var(--block-gap)" }}>
-          <p className="label mb-2.5">The line behind it</p>
+          <p className="label mb-2.5">More proof</p>
           <p className="text-body mb-4" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-            Before the current Web3 and AI work, I spent more than fifteen years around product programs, commercial environments, onboarding, client delivery, and implementation work where strong systems still needed better structure, translation, and confidence around the way they were used.
+            Smaller public artifacts and traces that support the current work without needing a full case block of their
+            own.
+          </p>
+          <div className="flex flex-col">
+            {proofItems.map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  padding: "12px 0",
+                  borderBottom: "1px solid var(--faint)",
+                }}
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                  <p className="text-body" style={{ fontWeight: 500 }}>
+                    {item.title}
+                  </p>
+                  <TrackedLink
+                    href={item.href}
+                    target={item.href.startsWith("/") ? undefined : "_blank"}
+                    rel={item.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                    className="work-inline-link text-small"
+                    eventName={`proof_${item.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_click`}
+                    eventProps={{ location: "work_more_proof" }}
+                  >
+                    {item.label} &rarr;
+                  </TrackedLink>
+                </div>
+                <p className="text-small" style={{ color: "var(--muted)" }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="measure-wide" style={{ borderTop: "1px solid var(--faint)", paddingTop: 18, marginBottom: "var(--block-gap)" }}>
+          <p className="label mb-2.5">Earlier operating work</p>
+          <p className="text-body mb-4" style={{ color: "var(--muted)", lineHeight: 1.75 }}>
+            Before the current blockchain and AI work, I spent more than fifteen years around product programs,
+            onboarding, client delivery, GTM, and execution in environments where technically strong systems still
+            needed better structure, translation, and confidence around how they were used.
           </p>
           <div className="flex flex-col">
             {legacyItems.map((item) => (

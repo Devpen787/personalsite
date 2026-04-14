@@ -7,7 +7,19 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const sections = [
+type FrequencyItem = {
+  title: string;
+  href: string;
+  note?: string;
+};
+
+type FrequencySection = {
+  label: string;
+  note?: string;
+  items: FrequencyItem[];
+};
+
+const sections: FrequencySection[] = [
   {
     label: "Returning to",
     items: [

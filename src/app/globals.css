@@ -22,7 +22,7 @@
   --nav-height: 50px;
   --nav-font: 13px;
   --label-fs: 11px;
-  --section-pad-y-top: 5rem;
+  --section-pad-y-top: 3.5rem;
   --section-pad-y-bottom: 4rem;
   --block-gap: 2.5rem;
 }
@@ -37,7 +37,7 @@
     --nav-height: 52px;
     --nav-font: 13.5px;
     --label-fs: 11.5px;
-    --section-pad-y-top: 5.5rem;
+    --section-pad-y-top: 4.25rem;
     --section-pad-y-bottom: 4.5rem;
     --block-gap: 2.75rem;
   }
@@ -53,7 +53,7 @@
     --nav-height: 54px;
     --nav-font: 14px;
     --label-fs: 12px;
-    --section-pad-y-top: 5.25rem;
+    --section-pad-y-top: 4.75rem;
     --section-pad-y-bottom: 4.5rem;
     --block-gap: 2.75rem;
   }
@@ -67,7 +67,7 @@
     --text-body-fs: 18px;
     --text-small-fs: 15px;
     --nav-height: 56px;
-    --section-pad-y-top: 5.5rem;
+    --section-pad-y-top: 5.25rem;
     --section-pad-y-bottom: 4.75rem;
     --block-gap: 3rem;
   }
@@ -236,6 +236,24 @@ a:hover {
   display: flex;
   gap: clamp(1rem, 2vw, 1.75rem);
   align-items: center;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.mobile-nav {
+  display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
 }
 
 .nav-link {
@@ -593,8 +611,8 @@ a:hover {
   width: 100%;
 }
 
-/* Mobile nav — visibility toggled in Nav.tsx (Tailwind sm:hidden / hidden sm:flex) */
-@media (max-width: 639px) {
+/* Mobile nav — visibility toggled in Nav.tsx below the md breakpoint */
+@media (max-width: 767px) {
   .mobile-menu {
     position: fixed;
     inset: 0;

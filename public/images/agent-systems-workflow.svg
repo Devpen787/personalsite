@@ -1,0 +1,53 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="540" rx="28" fill="#FAFAF7"/>
+  <rect x="36" y="36" width="888" height="468" rx="24" fill="white" stroke="#E6E4DE" stroke-width="2"/>
+
+  <text x="72" y="92" fill="#161616" font-family="Georgia, 'Times New Roman', serif" font-size="34">Practical agent systems</text>
+  <text x="72" y="122" fill="#6B6A66" font-family="Arial, Helvetica, sans-serif" font-size="18">
+    Real repo artifacts from <tspan font-weight="600">agentops-lite</tspan>, shown as inspectable evidence.
+  </text>
+
+  <rect x="72" y="164" width="384" height="134" rx="18" fill="#FBFAF6" stroke="#E1DDD1" stroke-width="2"/>
+  <rect x="96" y="186" width="150" height="28" rx="14" fill="#F3F0E7"/>
+  <text x="111" y="205" fill="#5E5A50" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">agent_manifest.json</text>
+  <text x="96" y="237" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">agent_id</text>
+  <text x="176" y="237" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">evidence-research-agent</text>
+  <text x="96" y="261" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">goal</text>
+  <text x="176" y="261" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">source-grounded research workflow</text>
+  <text x="96" y="285" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">approval</text>
+  <text x="176" y="285" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">recommend_and_pr</text>
+
+  <rect x="504" y="164" width="384" height="134" rx="18" fill="#FBFAF6" stroke="#E1DDD1" stroke-width="2"/>
+  <rect x="528" y="186" width="136" height="28" rx="14" fill="#F3F0E7"/>
+  <text x="543" y="205" fill="#5E5A50" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">model_policy.json</text>
+  <text x="528" y="237" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">vendor</text>
+  <text x="603" y="237" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">openai</text>
+  <text x="528" y="261" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">prod model</text>
+  <text x="603" y="261" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">gpt-5.4</text>
+  <text x="528" y="285" fill="#8A857A" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">parallel</text>
+  <text x="603" y="285" fill="#2C2B27" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">true</text>
+
+  <rect x="72" y="322" width="384" height="134" rx="18" fill="#F6F6FF" stroke="#CFCBFF" stroke-width="2"/>
+  <rect x="96" y="344" width="162" height="28" rx="14" fill="#EBE9FF"/>
+  <text x="111" y="363" fill="#67639B" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">upgrade_proposal.json</text>
+  <text x="96" y="395" fill="#8E89C1" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">proposal_id</text>
+  <text x="191" y="395" fill="#494572" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">vendor-model-refresh-2026-03-20</text>
+  <text x="96" y="419" fill="#8E89C1" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">headline</text>
+  <text x="191" y="419" fill="#494572" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">GPT-5.4 model refresh</text>
+  <text x="96" y="443" fill="#8E89C1" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">status</text>
+  <text x="191" y="443" fill="#494572" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">candidate</text>
+
+  <rect x="504" y="322" width="384" height="134" rx="18" fill="#F2FBF5" stroke="#BFE5C9" stroke-width="2"/>
+  <rect x="528" y="344" width="122" height="28" rx="14" fill="#E5F5EA"/>
+  <text x="543" y="363" fill="#5E7A66" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">eval_result.json</text>
+  <text x="528" y="395" fill="#7EA287" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">support_check</text>
+  <text x="637" y="395" fill="#35523D" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">1.0</text>
+  <text x="528" y="419" fill="#7EA287" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">unsupported_rate</text>
+  <text x="657" y="419" fill="#35523D" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">0.0</text>
+  <text x="528" y="443" fill="#7EA287" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">decision</text>
+  <text x="609" y="443" fill="#35523D" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">pass</text>
+
+  <text x="72" y="486" fill="#7A756A" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    Four real files. Define the agent, pin policy, review changes, and evaluate before promotion.
+  </text>
+</svg>

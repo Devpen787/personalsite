@@ -60,8 +60,8 @@ export function Nav() {
           devinson.
         </Link>
 
-        {/* Desktop — hidden below sm so it never stacks beside the mobile menu control */}
-        <div className="nav-links desktop-nav hidden sm:flex">
+        {/* Desktop nav visibility is controlled in globals.css so it cannot be overridden by nav-links display rules */}
+        <div className="nav-links desktop-nav">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -100,10 +100,10 @@ export function Nav() {
           </button>
         </div>
 
-        {/* Mobile: fullscreen menu; only visible below sm breakpoint */}
+        {/* Mobile trigger visibility is controlled in globals.css alongside desktop-nav */}
         <button
           type="button"
-          className="theme-toggle mobile-nav flex sm:hidden"
+          className="theme-toggle mobile-nav"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-controls="site-mobile-menu"
